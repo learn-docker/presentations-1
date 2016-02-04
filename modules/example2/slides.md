@@ -1,4 +1,10 @@
-# train
+# Example 2
+
+---
+
+## Example image
+
+![Docker Logo](images/small_v.png)
 
 ---
 
