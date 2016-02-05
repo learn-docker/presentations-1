@@ -16,11 +16,15 @@ Example markdown file
 - Bullet item
 - Bullet item
 
----
+Note: This is a speaker note.
+
+----
 
 ## Slide 2
 
-Example text
+Example text on vertical slide
+
+Note: Another example speaker note.
 
 ---
 
