@@ -16,7 +16,7 @@ Example markdown file
 - Bullet item
 - Bullet item
 
-Note: This is speaker note.
+Note: This is a speaker note.
 
 ----
 
@@ -24,7 +24,7 @@ Note: This is speaker note.
 
 Example text on vertical slide
 
-Note: Another speaker note.
+Note: Another example speaker note.
 
 ---
 
