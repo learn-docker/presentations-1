@@ -40,5 +40,5 @@ Example text
 def example():
     """Example code function"""
     do_something()
-    do_something_els()
+    do_something_else()
 ```
