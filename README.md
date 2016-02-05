@@ -169,7 +169,10 @@ The following rules apply when creating your presentation files:
 - Blank lines
 - Multiple modules listed (One module per line)
 
-Note: Modules will be compiled into the final presentation in the order listed
+Notes:
+
+- Modules will be compiled into the final presentation in the order listed
+- The engine will merge all listed modules into the final index.html (whether or not the slides were created using HTML or Markdown)
 
 #### Example presentations files
 
