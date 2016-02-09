@@ -5,7 +5,7 @@ Official Docker Training
 
 This repository contains all of the modules and presentation definition files for the official Docker training programs.
 
-This content is compiled and served using the **docker-present** RevealJS engine located here: https://github.com/docker-training/docker-present
+This content is compiled and served using the **docker-present** RevealJS controller located here: https://github.com/docker-training/docker-present
 
 ## Modules and Presentations
 
@@ -105,7 +105,7 @@ The full range of RevealJS features available for use but:
 
 The following rules apply when using markdown (slides.md):
 
-- Embedded images always use the format/path: `![name](images/filename.png)` - This will always display correctly in Github and the engine will modify the path before serving the presentation
+- Embedded images always use the format/path: `![name](images/filename.png)` - This will always display correctly in Github and the controller will modify the path before serving the presentation
 - To separate slides use three dash characters: `---`
 - To create vertical slides use four dash characters: `----`
 - To add speaker notes use **Note:** - `Note: This is an example speaker note`
@@ -114,8 +114,8 @@ The following rules apply when using markdown (slides.md):
 
 The following rules apply when using an HTML file:
 
-- Embedded images always use the format/path: `<img src="images/filename.png">` - The engine will modify the path before serving the presentation
-- **Important**: Because of the way the **docker-present** engine has been coded the **only** html required in the slides.html file is the RevealJS `<section></section>` elements. The engine takes this file and compiles it with any other specified modules into the final index.html file that it serves. 
+- Embedded images always use the format/path: `<img src="images/filename.png">` - The controller will modify the path before serving the presentation
+- **Important**: Because of the way the **docker-present** controller has been coded the **only** html required in the slides.html file is the RevealJS `<section></section>` elements. The controller takes this file and compiles it with any other specified modules into the final index.html file that it serves. 
 
 An example slides.html:
 
@@ -139,7 +139,7 @@ vagrant@docker:/git/docker.inc/presentations/modules/example1$ cat slides.html
 </section>
 ```
 
-The base HTML template the engine uses is located here: https://github.com/docker-training/docker-present/blob/master/present/templates/index.html
+The base HTML template the controller uses is located here: https://github.com/docker-training/docker-present/blob/master/present/templates/index.html
 
 For instructions on modifiying your base HTML template and theme see: [Templates](https://github.com/docker-training/docker-present#templates)
 
@@ -172,7 +172,7 @@ The following rules apply when creating your presentation files:
 Notes:
 
 - Modules will be compiled into the final presentation in the order listed
-- The engine will merge all listed modules into the final index.html (whether or not the slides were created using HTML or Markdown)
+- The controller will merge all listed modules into the final index.html (whether or not the slides were created using HTML or Markdown)
 
 #### Example presentations files
 
