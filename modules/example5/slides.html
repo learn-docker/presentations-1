@@ -1,0 +1,307 @@
+<section>
+					<h1>Deploying UCP for Evaluation and in Production</h1>
+                    <aside class="notes">Note:  Goal:  Be able to install Docker UCP both for evaluation and in production</aside>
+                    <p><a href="https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1MJkorSprOvyarO4FJwVMthgDLx1cuHykaWFffMS8irE%2Fedit%3Fpli%3D1">Docs Resource</a> - <a href="https://www.google.com/url?q=http%3A%2F%2Fucp-beta-docs.s3-website-us-west-1.amazonaws.com">Beta Docs</a></p>
+				</section>
+                
+            	<section>
+					<h2><span class="accent_text_color">Docker CaaS Training Series 1:</span> Deploying UCP for Evaluation and in Production</h2>
+				</section>
+            
+				<section>
+					<h2>Welcome to the course!</h2> 
+                    <aside class="notes">Speaker Notes: In this first course in the Docker CaaS training series you will learn the basics of Docker UCP by:</aside>
+					<li>Installing DUCP in a local environment</li>
+					<li>Installing DUCP for a production environment</li>
+					<li>Understand Docker basics</li>
+				</section>
+                
+                <section>
+					<h2>A Note on Pedagogy</h2>   
+                    <li>Docker believes in learning by doing, with support.</li>              
+                    <aside class="notes">Speaker Notes: In this course you will be challenged to complete a series of learning tasks upfront, but will be supported by content and the help from the instructor.  You may listen to a mini-lecture that will supplement the task, but emphasis will be completing the tasks.  You will be able to see how much you've learned through taking our pre and post assessments.</aside>
+                    <li>4CID Pic here:</li>
+                    <li>Passing the course: 70+ on final assessment.</li>
+				</section>
+                
+                <section>
+					<h2>Intro to Instructor</h2>   
+                    <p>Insert Pic Here</p>
+				</section>
+                
+                <section>					  
+                    <section>
+                    <h2>Agenda</h2>
+                    <li>Introduction</li>
+                    <li>Pre-assessment</li>
+                    <li>Docker Primer + Access Course Content</li>
+                    </section>
+                    <section>
+                    <li><span class="accent_text_color">Mini-Lecture A:</span> Docker Architecture and Components</li>
+                    <li><span class="accent_text_color">Task 1:</span> Deploying DUCP as a Sandbox</li>
+                    <aside class="notes">Notes: This includes installing a local instance, deploying a Second Docker Host, and creating a container.</aside>
+                    <li><span class="accent_text_color">Mini-lecture B:</span> Intro Docker Ops and Docker Datacenter</li>
+                    <li><span class="accent_text_color">Task 2:</span> Deploying DUCP in a Production Environment</li>
+                    <aside class="notes">Notes: Same as above except a different environment, networking, RBAC, Certifications, and through CLI, HA.  Ends with an Upgrade</aside>
+                    <li><span class="accent_text_color">Task 3:</span> Integrate with DTR</li>
+                    <li><span class="accent_text_color">Mini-lecture C:</span> Docker Trusted Registry</li>
+                    </section>
+                    <section>
+                    <li>Post-assessment</li>
+                    <li>Next Steps</li>
+                    </section>
+				</section>
+                
+                <section>
+					<h2>Pre-assessment</h2>   
+                    <p><a href="https://github.com/hakimel/reveal.js#api">Trueability</a></p>
+				</section>
+                
+                <section>                
+                    <section>
+                        <h2>Get your course content</h2>   
+                        <p>Demo</p>
+                    </section>             
+                    <section data-markdown>
+					<script type="text/template">
+						## Child slide
+
+						```
+						run command
+  
+						```
+					</script>
+					</section>                
+                </section>
+                
+                <section>
+					<h2>You just learned Docker basics!</h2>
+                    <div class="half_container_one">
+                        <div class="table_cell">Toolbox <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Containers <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Dockerfile <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Images <span class="accent_text_color">✓</span></div>
+                    </div>
+                    <div class="half_container_two">
+                        <div class="table_cell">Pull/Run <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Ports <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Browse <span class="accent_text_color">✓</span></div>
+                    </div>
+				</section>
+                
+                <section data-background="#173432">
+					<h2><span class="accent_text_color">Mini-lecture A:</span> Docker Architecture and Components</h2><br>
+                    <h3 class="accent_text_color">What are the components of Docker?</h3>
+                    <li>List components with iconography</li>
+                    <aside class="notes">speaker notes:  Speak at high level to each component</aside><br>
+                    <h3 class="accent_text_color">How do the components fit together?</h3>
+                    <li>Insert CaaS Marketing Slides</li>
+				</section>
+                
+                <section data-background="#313131">
+					<h2><span class="accent_text_color">Task 1:</span> Deploying UCP for Evaluation</h2>
+                    <p>Go here for instructions <a href="https://github.com/docker/ucp_lab">https://github.com/docker/ucp_lab</a></p>
+				</section>
+                
+                <section data-background="#173432">
+                	<section>
+                        <h2><span class="accent_text_color">Mini-lecture B:</span> Docker Intro for Ops and Docker Datacenter</h2><br>
+                        <h3 class="accent_text_color">What should Operations know about Docker?</h3>
+                        <div class="half_container_one"><ul>
+                        <li>VM vs Container</li>
+                        <li>Ephemeral</li>
+                        <li>Stateless vs stateful (app architecture)</li>
+                        </ul></div>
+                        <div class="half_container_two"><ul>
+                        <li>Orders of magnitude</li>
+                        <li>Size and density of storage</li>
+                        <li>Speed</li>
+                        </ul></div>
+                    </section>
+                    <section>
+                        <h3 class="accent_text_color">What does this look like at scale?</h3>
+                        <p>Use-cases with actual customers</p>
+                        <aside class="notes">Note: will come from Marketing</aside>
+                    </section>
+                    <section>
+                        <h3 class="accent_text_color">Intro to Docker Datacent: CS Engine, DTR, UCP</h3>
+                        <p>Find Sales Slides</p>
+                    </section>
+                    <section>
+                        <p><a href="https://www.google.com/url?q=https%3A%2F%2Fwww.docker.com%2Fcompatibility-maintenance">Compatibility Matrix</a></p>
+                    </section>
+				</section>
+                
+                <section data-background="#313131">
+					<h2><span class="accent_text_color">Task 2:</span> Deploying UCP for Production</h2>
+                    <aside class="notes">Note: Include adding nodes</aside>
+				</section>
+                
+                <section data-background="#313131">
+					<h2><span class="accent_text_color">Task 3:</span> Integrate UCP with DTR</h2>
+                    <aside class="notes">Note: Pre standup DTR with CS Engine 3 nodes</aside>
+				</section>
+                
+                <section data-background="#173432">
+					<h2><span class="accent_text_color">Mini-lecture C:</span> Docker Trusted Registry</h2>
+				</section>
+                
+                <section>
+                    <section>
+                        <h2>What is Docker Trusted Registry?</h2>
+                        <p>Docker Trusted Registry (DTR) is a registry server that you can run securely on your own infrastructure</p>
+                    </section>
+                    <section>
+                        <h2>What features does DTR include?</h2>
+                        <li>Image registry to store images</li>
+                        <li>Pluggable storage drivers</li>
+                        <li>Web based GUI for admin configuration</li>
+                        <li>Easy and transparent upgrades</li>
+                        <li>Built in system usage metrics dashboard</li>
+                        <li>Logging</li>
+                        <aside class="notes">Speaker Notes: The following features differentiate DTR from Docker Hub, the normal registry server: Web based GUI for admin configuration, Easy and transparent upgrades, Built in system usage metrics dashboard, logging, and built in support for basic and LDAP authentication</aside>
+                    </section>
+                </section>
+                
+                <section>
+                	<section>
+                        <h2>DTR Primary Usage Scenarios</h2><br>
+                        <h3 class="accent_text_color">CI/CD with Docker:</h3>
+                        <li>Centrally located base images</li>
+                        <li>Store individual build images</li>
+                        <li>Pull tested images to production</li>
+                        <li>Developer workflow is a commit</li>
+                    </section>
+                    <section>
+                        <h3 class="accent_text_color">Containers-as-a-Service:</h3>
+                        <li>With Docker UCP</li>
+                        <li>Deploy Jenkins executors or Hadoop nodes</li>
+                        <li>Instant-on developer environment</li>
+                        <li>Select curated apps from a catalog</li>
+                        <aside class="notes">Speaker Notes:</aside>
+					</section>
+                
+				</section>
+ 
+                <section>
+                	<section>
+                        <h2>DTR Features:</h2><br>
+                        <h3 class="accent_text_color">General Features</h3>
+                        <li>Accounts and repos groups UI</li>
+                    </section>
+                    <section>
+                        <h3 class="accent_text_color">CI/CD with Docker</h3>
+                        <li>Image garbage collection</li>
+                        <li>Visual API runner and docs</li>
+                    </section>
+                    <section>
+                        <h3 class="accent_text_color">Registry as a Marketplace</h3>
+                        <li>Image deletion from index</li>
+                        <li>Search and browse index and UI</li>
+                    </section>
+                    <section>
+                        <h3 class="accent_text_color">Platform Features</h3>
+                        <li>Image provenance</li>
+                        <li>Docker Notary Support</li>
+                    </section>
+				</section>
+                
+                <section>
+					<h2>DTR Installation Requirements</h2>
+                    <li>DTR license</li>
+                    <li>Commercially supported version of Docker Engine (CS Engine)</li>
+                    <li>CS Engine only supported on RHEL v7.0, 7.1 or Ubuntu 14.04 LTS</li>
+                    <li>Download the RPM or DEB package from your Enterprise License page in Docker Hub and then copy it into your host machine</li>
+				</section>
+                
+                
+                <section>
+                	<section>
+						<h2>Public vs Private Repositories</h2>
+                    </section>
+                    <section>
+                        <h3 class="accent_text_color">Public repositories created user a user account are openly available</h3>
+                        <li>Can pull images without authentication, even when managed authentication is enabled</li>
+                        <li>Still need to login to push images</li>
+                    </section>
+                    <section>
+                        <h3 class="accent_text_color">Private repositories created under a user account can only be accessed by:</h3>
+                        <li>The user who created the repo</li>
+                        <li>Any user with a global role</li>
+                    </section>
+				</section>
+                
+                
+                <section>
+					<h2>Demo</h2>
+                    <aside class="notes"><h3 class="accent_text_color">Speaker Notes:  Demo the following</h3></aside>
+                    <li>Getting access to DTR</li>
+                    <li>Show DTR with a number of images and containers</li>
+                    <li>Configure DTR with Domain and ports, license, SSL certificates and authentication method</li>
+                    <li>Create a repo and push with unauthorized login</li>
+                    <li>Login and push again</li>
+                    <li>Pull an image from DTR</li>
+				</section>
+                
+                
+                <section>
+					<h2>Garbage Collection and Image Deletion</h2>
+                    <div class="table_cell"><span class="accent_text_color">Soft Image Delete =</span> Remove from UI but still on disk</div>
+                    <div class="table_cell"><span class="accent_text_color">Hard image Delete =</span> Remove unused layers via garbage collection</div>
+				</section>
+                
+                
+                <section>
+                	<section>
+						<h2>LDAP authentication</h2>
+                    </section>
+                    <section>
+						<h3>Connect to LDAP server for authentication</h3>
+                    </section>
+                    <section>
+						<h3>Usernames and passwords will be based on what is configured on the LDAP server</h3>
+                    </section>
+                    <section>
+						<h3>Your LDAP server may have thousands of users</h3>
+                        <li>Do all of them need access?</li>
+                    </section>
+                    <section>
+						<h3>Filter for DTR registry users and DTR administrators</h3>
+                        <aside class="notes">Speaker Notes:  Demo:  Instructor demo: Highlight the config page and explain each field if you think it is necessary. You don’t have to go into detail on each field because generally only 1 or 2 people in an enterprise worry about the details and this is something that is done once and left alone. </aside>
+                    </section>
+				</section>
+                
+                
+                <section>
+					<h2>Demo</h2>
+                    <aside class="notes">Speaker Notes:  Finish the lecture on DTR with a demo of server metrics, logging server, API console + Docs, Notary Integration, and storage backends</aside>
+				</section>
+                
+                
+                <section>
+					<h2>Post-Assessment:</h2>
+                    <p>Instructions Here</p>
+                    <aside class="notes">
+                    	<h3 class="accent_text_color">Install UCP</h3>
+                        <li>check: ensure the UCP container running</li>
+                        <li>check: web ui available on the right port</li><br>
+                    	<h3 class="accent_text_color">Add 2 nodes</h3>
+                        <li>check</li><br>
+                        <h3 class="accent_text_color">Integrate DTR</h3>
+                    </aside>
+				</section>
+                
+                
+                <section>
+					<h2>Next Steps</h2><br>
+                    <h3 class="accent_text_color">Clean up steps (optional)</h3>
+                    <li>Use uninstall steps for local install</li><br>
+                    <h3 class="accent_text_color">Your assessment results</h3>
+				</section>
+                
+                
+                <section>
+					<h2>Ending Slide</h2>
+                    <div class="table_cell"><span  class="accent_text_color">Sign up for next course in series:<br></span> Managing Container Services on DUCP</div>
+                    <div class="table_cell">Take Survey</div>
+				</section>

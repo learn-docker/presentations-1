@@ -1,0 +1,121 @@
+				<section>
+					<h1>Deploying UCP for Evaluation and in Production</h1>
+                    <aside class="notes">Note:  Goal:  Be able to install Docker UCP both for evaluation and in production</aside>
+                    <p><a href="https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1MJkorSprOvyarO4FJwVMthgDLx1cuHykaWFffMS8irE%2Fedit%3Fpli%3D1">Docs Resource</a> - <a href="https://www.google.com/url?q=http%3A%2F%2Fucp-beta-docs.s3-website-us-west-1.amazonaws.com">Beta Docs</a></p>
+				</section>
+                
+            	<section>
+					<h2><span class="accent_text_color">Docker CaaS Training Series 1:</span> Deploying UCP for Evaluation and in Production</h2>
+				</section>
+            
+				<section>
+					<h2>Welcome to the course!</h2> 
+                    <aside class="notes">Speaker Notes: In this first course in the Docker CaaS training series you will learn the basics of Docker UCP by:</aside>
+					<li>Installing DUCP in a local environment</li>
+					<li>Installing DUCP for a production environment</li>
+					<li>Understand Docker basics</li>
+				</section>
+                
+                <section>
+					<h2>A Note on Pedagogy</h2>   
+                    <li>Docker believes in learning by doing, with support.</li>              
+                    <aside class="notes">Speaker Notes: In this course you will be challenged to complete a series of learning tasks upfront, but will be supported by content and the help from the instructor.  You may listen to a mini-lecture that will supplement the task, but emphasis will be completing the tasks.  You will be able to see how much you've learned through taking our pre and post assessments.</aside><br>
+                    <p><img src="images/4cid.png"></p><br>
+                    <li>Passing the course: 70+ on final assessment.</li>
+				</section>
+                
+                <section>
+					<h2>Intro to Instructor</h2>   
+                    <p>Insert Pic Here</p>
+				</section>
+                
+                <section>					  
+                    <section>
+                    <h2>Agenda</h2>
+                    <li>Introduction</li>
+                    <li>Pre-assessment</li>
+                    <li>Docker Primer + Access Course Content</li>
+                    </section>
+                    <section>
+                    <li><span class="accent_text_color">Mini-Lecture:</span> Docker Architecture and Components</li>
+                    <li><span class="accent_text_color">Task:</span> Deploying DUCP as a Sandbox</li>
+                    <aside class="notes">Notes: This includes installing a local instance, deploying a Second Docker Host, and creating a container.</aside>
+                    <li><span class="accent_text_color">Mini-lecture:</span> Intro Docker Ops and Docker Datacenter</li>
+                    <li><span class="accent_text_color">Task:</span> Deploying DUCP in a Production Environment</li>
+                    <aside class="notes">Notes: Same as above except a different environment, networking, RBAC, Certifications, and through CLI, HA.  Ends with an Upgrade</aside>
+                    <li><span class="accent_text_color">Task:</span> Integrate with DTR</li>
+                    <li><span class="accent_text_color">Mini-lecture:</span> Docker Trusted Registry</li>
+                    </section>
+                    <section>
+                    <li>Post-assessment</li>
+                    <li>Next Steps</li>
+                    </section>
+				</section>
+                
+                <section>
+					<h2>Pre-assessment</h2>   
+                    <p><a href="https://github.com/hakimel/reveal.js#api">Trueability</a></p>
+				</section>
+                
+                <section>                
+                    <section>
+                        <h2>Get your course content</h2>   
+                        <p>Demo</p>
+                    </section>             
+                    <section data-markdown>
+					<script type="text/template">
+						## Child slide
+
+						```
+						run command
+  
+						```
+					</script>
+					</section>                
+                </section>
+                
+                <section>
+					<h2>You just learned Docker basics!</h2>
+                    <div class="half_container_one">
+                        <div class="table_cell">Containers <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Images <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Pull/Run <span class="accent_text_color">✓</span></div>
+                    </div>
+                    <div class="half_container_two">
+                        <div class="table_cell">Ports <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Browse <span class="accent_text_color">✓</span></div>
+                    </div>
+                    <aside class="notes">Speaker Notes:  To download a pdf version of this presentation you must use Chrome as your browser.</aside>
+				</section>
+                
+                <section>
+                	<section>
+						<h2>Containers and Images</h2>
+                    </section>
+                    <section>
+                    	<h3 class="accent_text_color">Containers</h3>
+                        <li>Isolated application platform</li>
+                        <li>Contains everything needed to run your application</li>
+                        <li>Based on one or more images</li>
+                    </section>
+                    <section>
+                    	<h3 class="accent_text_color">Images</h3>
+                        <li>Read only template used to create containers</li>
+                        <li>Built by you or other Docker users</li>
+                        <li>Stored in Docker Hub, Docker Trusted Registry or your own Registry</li>
+                    </section>
+                    <section><aside class="notes">
+                    	<h3 class="accent_text_color">Speaker Notes:</h3>
+                        <li>How containers work is that Docker, uses the kernel on the host operating system to basically run multiple root file systems</li>
+                        <li>Each root file system is called a container</li>
+                        <li>Each container also has its own</li>
+                        <div class="half_container_one">
+                            <div class="table_cell">Processes</div>
+                            <div class="table_cell">Memory</div>
+                        </div>
+                        <div class="half_container_two">
+                            <div class="table_cell">Devices</div>
+                            <div class="table_cell">Network stack</div>
+                        </div></aside>
+                    </section>
+				</section>
