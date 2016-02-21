@@ -1,0 +1,512 @@
+<section>
+					<h1>Managing Container Services with Docker Universal Control Plane</h1>
+                    <p><a href="https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1MJkorSprOvyarO4FJwVMthgDLx1cuHykaWFffMS8irE%2Fedit%3Fpli%3D1">Docs Resource</a></p>
+				</section>
+                
+                <section>
+					<h2><span class="accent_text_color">Docker CaaS Training Series 2:</span> Managing Container Services with DUCP</h2>
+				</section>
+                
+                <section>
+					<h2>Welcome to the course!</h2> 
+                    <aside class="notes"><h3>Speaker Notes: In this second course in the Docker CaaS training series you will learn</h3>
+					<li>How to deploy a variety of Dockerized applications</li>
+					<li>Manage images, containers, and networking</li>
+					<li>Monitoring best practices</li>
+					<li>Understand the fundamentals of Swarm</li></aside>
+				</section>
+                
+                <section>
+					<h2>A Note on Pedagogy</h2>   
+                    <li>Docker believes in learning by doing, with support.</li>              
+                    <aside class="notes">Speaker Notes: In this course you will be challenged to complete a series of learning tasks upfront, but will be supported by content and the help from the instructor.  You may listen to a mini-lecture that will supplement the task, but emphasis will be completing the tasks.  You will be able to see how much you've learned through taking our pre and post assessments.</aside><br>
+				</section>
+                
+                <section>
+                    <h2>4CID Pic here</h2>
+                    <li>Passing the course: 70+ on final assessment.</li>
+				</section>
+                
+                <section>
+					<h2>Intro to Instructor</h2>   
+                    <p>Insert Pic Here</p>
+				</section>
+                
+                <section>					  
+                    <section>
+                    <h2>Agenda</h2>
+                    <li>Introduction</li>
+                    <li>Pre-assessment</li>
+                    <li>Docker Primer + Access Course Content</li>
+                    </section>
+                    <section>
+                    <li><span class="accent_text_color">Task 1:</span> Configure your environment</li>
+                    <li><span class="accent_text_color">Task 2:</span> Deploy a Container</li>
+                    <li><a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fmoxiegirl%2Fswarm%2Fblob%2Fmaster%2Fdocs%2Foverview.md">Mini-Lecture A: Swarm</a></li>
+                    <li><span class="accent_text_color">Task 3:</span> Deploy more Containers</li>
+                    <li><span class="accent_text_color">Mini-Lecture B:</span> Evaluating a Compose File</li>
+                    <li><span class="accent_text_color">Task 4:</span> Deploy simple Applications</li>
+                    <li><span class="accent_text_color">Task 5:</span> Deploy <a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fdocker%2Fswarm-demo-voting-app">Voting-App</a></li>
+                    <li><span class="accent_text_color">Mini-Lecture C:</span> Docker Networking</li>
+                    <li><span class="accent_text_color">Task 6:</span> Deploy Voting-App across multiple nodes</li>
+                    <li><span class="accent_text_color">Task 7:</span> Monitoring (Visibility)</li>
+                    <li><span class="accent_text_color">Mini-Lecture D:</span> Monitoring Best Practices</li>
+                    </section>
+                    <section>
+                    <li>Post-assessment</li>
+                    <li>Next Steps</li>
+                    </section>
+				</section>
+                
+                <section>
+					<h2>Pre-assessment</h2>   
+                    <p><a href="https://github.com/hakimel/reveal.js#api">Trueability</a></p>
+				</section>
+                
+                <section>                
+                    <section>
+                        <h2>Get your course content</h2>   
+                        <p>Demo</p>
+                    </section>             
+                    <section data-markdown>
+					<script type="text/template">
+						## Child slide
+
+						```
+						docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock 
+						training/docker-present
+  
+						```
+					</script>
+					</section>                
+                </section>
+                
+                <section>
+					<h2>You just learned Docker basics!</h2>
+                    <div class="half_container_one">
+                        <div class="table_cell">Toolbox <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Containers <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Dockerfile <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Images <span class="accent_text_color">✓</span></div>
+                    </div>
+                    <div class="half_container_two">
+                        <div class="table_cell">Pull/Run <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Ports <span class="accent_text_color">✓</span></div>
+                        <div class="table_cell">Browse <span class="accent_text_color">✓</span></div>
+                    </div>
+				</section>
+                
+                <section>
+					<h2>Docker Primer + Access Course Content</h2>   
+                    <p>To be decided</p>
+				</section>
+                
+                <section data-background="#313131">
+					<h2><span class="accent_text_color">Task 1:</span> Configure your environment</h2><br>
+                    <li>You have been given 3 EC2 instances called UCP controller, UCP node 0 and UCP node 1</li>
+                    <li>Join UCP node 0 and UCP node 1 to the controller by following the instructions at <a href="http://ucp-beta-docs.s3-website-us-west-1.amazonaws.com/installation/#step-7-add-an-engine-node-to-the-ucp-cluster">http://ucp-beta-docs.s3-website-us-west-1.amazonaws.com/installation/#step-7-add-an-engine-node-to-the-ucp-cluster</a></li>
+				</section>
+                
+                <section data-background="#313131">
+					<h2><span class="accent_text_color">Task 2:</span> Deploy an NGINX container</h2><br>
+                    <li>Run an NGINX container using the UCP interface</li>
+                    <li>Instructions at <a href="https://github.com/docker-training/DC-Learning-tasks/blob/master/UCP02_Task_2-Deploy_a_container.md">https://github.com/docker-training/DC-Learning-tasks/blob/master/UCP02_Task_2-Deploy_a_container.md</a></li>
+				</section>
+                
+                <section data-background="#173432">
+					<h2><span class="accent_text_color">Mini Lecture A:</span> Docker Swarm</h2>
+				</section>
+                
+                <section>
+					<h2>What is Docker Swarm</h2>
+					<li>Native tool that clusters Docker hosts and schedules containers on them</li>
+					<li>Allows us to distribute container workloads</li>
+					<li>Serves the standard Docker API</li>
+					<li>Ships with simple scheduling and discovery backend</li>
+				</section>
+                
+                <section>
+					<h2>How Swarm works</h2>
+					<p>[insert image here: Swarm diagram.png]</p>
+				</section>
+                
+                <section>
+					<h2>Discovery backends</h2>                   
+					<div class="table_cell">Hosted discovery</div>                    
+                    <div style="width: 100%; overflow: hidden;">
+                    <div class="third_container_one"><div class="table_cell" style="overflow: hidden; height: 150px;"><img src="images/etcd.png" style="border: none; background: none; box-shadow: none;"></div></div>
+                    <div class="third_container_two"><div class="table_cell" style="overflow: hidden; height: 150px;"><img src="images/consul.png" style="border: none; background: none; box-shadow: none;"></div></div>
+                    <div class="third_container_three"><div class="table_cell" style="overflow: hidden; height: 150px;"><img src="images/zookeeper.png" style="border: none; background: none; box-shadow: none;"></div></div>
+                    </div>
+					<div class="table_cell">Static files</div>                   
+				</section>
+                
+                <section>
+					<h2>Swarm and UCP</h2>
+					<li>UCP runs on Swarm</li>
+					<li>Acts as a GUI for Swarm so you don’t have to use commands to run containers</li>
+					<li>Adds user management capabilities</li>
+					<li>Easy way to monitor containers in your cluster and troubleshoot for potential problems</li>
+					<li>Provides authentication and security such as TLS and access control</li>
+				</section>
+                
+                <section>
+					<h2>UCP containers</h2>
+					<li>Notice the Swarm container running the manage command</li>
+					<p>[insert image here: Swarm containers]</p>
+				</section>
+                
+                <section>
+                	<section>
+                        <h2>Scheduling containers in the cluster</h2>
+                        <li>How does Swarm decide which node your container runs on?</li>
+                        <li>The Docker Swarm scheduler ranks nodes based on a number of different strategies / algorithms</li>
+                        <li>When you run a container, Swarm will place it in the node with the highest rank</li>
+                        <li>How the rank is calculated depends on your selected strategy</li>
+                    </section>
+                    
+                    <section>
+                        <h3>Two strategies</h3>
+                        <div class="half_container_one"><div class="table_cell">Spread</div></div>
+                        <div class="half_container_two"><div class="table_cell">Binpack</div></div>
+                    </section>
+				</section>
+                
+                <section>
+					<h2>Spread Strategy</h2>
+					<li>The spread strategy ranks nodes based on the number of containers</li>
+					<li>Swarm will schedule the container on the node that has the least number of containers running</li>
+					<li>If multiple nodes have the same least number of containers running, Swarm will pick one of those nodes at random</li>
+					<p>[insert animation diagram]</p>
+				</section>
+                
+                <section>
+					<h2>Binpack strategy</h2>
+					<li>When using the binpack strategy, Swarm will try to fit as many containers into a node as possible, before using another node</li>
+					<li>Optimizes for the container that is the most packed</li>
+					<li>Swarm will continue to schedule containers on the same node until there are insufficient resources (CPU, RAM) on that node</li>
+					<aside class="notes">Note: when using binpack you have to specify the memory and/or CPU allocation when running containers. Otherwise Swarm will pack every container into the one host regardless of its resources.</aside>
+				</section>
+                
+                <section>
+					<h2>UCP scheduling</h2>
+					<li>Defaults to spread strategy</li>
+					<li>Option can be configured during the installation procedure</li>
+					<li>Cannot be changed on the fly</li>
+				</section>
+                
+                <section data-background="#313131">
+                	<section>
+                        <h2><span class="accent_text_color">Task 3:</span> Deploy more Containers</h2>
+                        <li>Run another NGINX container with the following configuration details:<br>
+                        Container name: load-balancer<br>
+                        Port mappings: 80 -> 80 and 443 -> 443</li>
+                        <li>What node is the container running on?</li>
+                    </section>
+                    <section>
+                        <li>Access the NGINX server on your web browser and verify that you can see the welcome page</li>
+                        <li>Repeat the same procedure to run a third NGINX container. What is the outcome of this action and why? (outcome will be an error message saying that there is no node with port 443 available)</li>
+                    </section>
+                    <section>
+                        <li>Go to <a href="http://hub.docker.com">http://hub.docker.com</a></li>
+                        <li>Search for the Tomcat image</li>
+                        <li>Run a Tomcat 8 container with automatic port mapping</li>
+                        <li>Check the port mapping between container and host ports.</li>
+                    </section>
+				</section>
+                
+                <section data-background="#173432">
+					<h2><span class="accent_text_color">Mini Lecture B:</span> Docker Compose</h2>
+				</section>
+                
+                <section>
+                	<section>
+						<h2>What is Compose</h2>
+                        <li>Tool for creating and managing multi container applications</li>
+                        <li>Containers are all defined in a single file called docker-compose.yml</li>
+                        <li>Cannot be changed on the fly</li>
+                    </section>
+                    <section>
+						<li>Each container runs a particular component / service of your application. For example:<br><br></li>
+                    	<div class="half_container_one"><div class="table_cell">Web front end</div></div>
+                        <div class="half_container_two"><div class="table_cell">User authentication</div></div>
+                        <div class="half_container_one"><div class="table_cell">Payments</div></div>
+                        <div class="half_container_two"><div class="table_cell">Database</div></div>
+                    </section>
+                    <section>
+                    	<li>Container links are defined</li>
+                        <li>Compose will spin up all your containers in a single command</li>
+                    </section>
+				</section>
+                
+                <section>
+                	<section>
+                        <h2>Background behind Docker Compose</h2>
+                        <li>Applications are moving away from the old monolithic structure</li>
+					</section>
+                    <section>
+                        <li>Weaknesses with monolithic structure</li><br>
+                        <div class="table_cell">Hard to upgrade each component individually. Have to upgrade the entire stack.</div>
+                        <div class="table_cell">Tied to a particular technology stack.</div>
+                        <div class="table_cell">If one component goes down, the entire application can go down. No one can visit your website</div>
+                        <div class="table_cell">Overloaded IDE</div>
+                        <div class="table_cell">Not ideal for scaling because you have to scale the entire stack</div>
+                    </section>
+                    <section>
+						<li>Micro service architecture is the new way of developing apps</li>
+                    </section>
+				</section>
+                
+                <section>
+					<h2>Monolithic architecture</h2>
+                    <p>[insert diagram - monolithic architecture.png]</p>
+				</section>
+                
+                <section>
+					<h2>Micro service architecture</h2>
+                    <p>[insert diagram - microservice architecture.png]</p>
+				</section>
+                
+                <section>
+                	<section>
+					<h2>Micro service advantages</h2>
+                    <li>Each service can be developed and upgraded independently</li>
+                    <li>Easier for developers to understand: <span class="accent_text_color">Only have to focus on their service</span></li>
+                    </section>
+                    <section>
+                    <li>If one service goes down, the application should still run, albeit with reduced functions</li>
+                    <li>Application is easier to troubleshoot</li>
+                    <li>The whole application does not have to be committed to one technology stack</li>
+                    </section>
+                    <section><aside class="notes">
+                    <h4>Micro service advantages</h4>
+                    <li>Instructor note: You might want to talk about the main principles of building microservices</li>
+                    <li>Each service should have one concern and only focus on that concern</li>
+                    <li>Services should be able to run independently of each other</li>
+                    <li>Each service component should be independently upgradable and replaceable</li>
+                    <li>Each service should be lightweight and quick to develop</li>
+                    <li>Services interact with each other by exposing an API</li>
+                    </aside></section>
+				</section>
+                
+                <section>
+                	<section>
+                        <h2>Docker Compose and micro services</h2>
+                        <p>[insert diagram - monolithic architecture.png]</p>
+                    </section>
+                    
+                    <section><aside class="notes">
+                        <h3>Speaker notes:</h3>
+                        <li>With a micro service architecture, you build your application as a collection of independent services which can function on their own. These services will talk to each other but the</li></aside>
+                    </section>
+                    
+                    <section><aside class="notes">
+                        <li>Main principle is that,</li><br>
+                        <div class="table_cell">Each service should have one concern and only focus on that concern. In this example, the Orders Service will place orders for items that customers buy.</div>
+                        <div class="table_cell">The Inventory service will look after item inventory.</div>
+                        <div class="table_cell">Other services for this application example could be payments, search, user authentication etc…</div></aside>
+                    </section>
+                    
+                    <section><aside class="notes">
+                        <li>Containers can be on same host or different hosts</li>
+                        <li>Use Compose to strap it all together and launch the app</li>
+                        <li>Swarm can be used to scale the containers. For example, you might scale order service so that there are 4 containers running it and it is load balanced</li>
+                    </aside></section>
+                    
+				</section>
+                
+                <section>
+                	<section>
+                        <h2>The Compose YML file</h2>
+                        <li>Defines the services that make up your application</li>
+                        <li>Each service contains instructions for building and running a container</li>
+                        <li>V1 and V2 format</li>
+                    </section>
+                    
+                    <section>                
+                    <section>
+                        <h4>Example V1 format</h4>   
+                        <p>[insert with syntax highlighting]</p>
+                    </section>             
+                    <section data-markdown>
+						<script type="text/template">
+                        ```
+                        javaclient:                       
+                            build: .                                                
+                        command: java HelloWorld                                                
+                        links:                                               
+                        - redis                                               
+                        redis:						
+	image: redis
+                        ```
+                        </script>
+					</section>                
+                	</section>
+                
+				</section>
+                
+                <section>                
+                    <section>
+                        <h2>YML file version 2 format</h2>   
+                        <p>[insert with syntax highlighting]</p>           
+                    <section data-markdown>
+						<script type="text/template">
+                        ```
+                        version: '2'                       
+                        services:                                              
+                        	javaclient:                                     
+                        	build: .                            
+                        redisdb:                      
+	image: redis
+                        ```
+                        </script>
+					</section>   
+                    </section>  
+                    <section>
+                    	<aside class="notes"><p>Speaker Notes: Version 2 is the new format in Docker Compose 1.6. However, version 1 format is still supported. You are still likely to encounter many compose files that are written in the v1 format.</p></aside>
+                    </section>             
+                </section>
+                
+                <section data-background="#313131">
+					<h2><span class="accent_text_color">Task 4:</span> Deploy simple applications</h2>
+                    <p><a href="https://github.com/docker-training/DC-Learning-tasks/blob/master/UCP02_Task_4-Deploy_a_simple_application.md ">https://github.com/docker-training/DC-Learning-tasks/blob/master/UCP02_Task_4-Deploy_a_simple_application.md </a></p>
+				</section>
+                
+                <section data-background="#313131">
+					<h2><span class="accent_text_color">Task 5:</span> Deploy Voting App</h2>
+                    <li>Proceed to <a href="https://github.com/docker/swarm-microservice-demo-v1">https://github.com/docker/swarm-microservice-demo-v1</a> and read the main docs to get an understanding of the application architecture</li>
+                    <li>Open your Mac or PC terminal. </li>
+                    <li>Clone the repository at <a href="https://github.com/docker/swarm-microservice-demo-v1">https://github.com/docker/swarm-microservice-demo-v1</a> into your local machine</li>
+                    <li>Try and deploy the application using Docker Compose</li>
+                    <li>What did you observe?</li>
+				</section>
+                
+                <section data-background="#173432">
+					<h2><span class="accent_text_color">Mini Lecture C:</span> Docker Networking</h2>
+				</section>
+                
+                <section>
+                	<section>
+                        <h2>Default Networks</h2>
+                        <li>Docker comes with three networks automatically setup</li>
+                        <li>View the networks by using the docker network ls command</li>
+                    </section>
+                    <section>
+                        <li>The bridge network is the docker0 bridge</li>
+                        <li>By default all containers are connected to the bridge network</li> 
+                        <p>[insert with syntax highlighting]</p>           
+                    <section data-markdown>
+						<script type="text/template">
+                        ```
+student@dockerhost:~$ docker network ls
+NETWORK ID          NAME                DRIVER
+d1dc8ce401a4        bridge              bridge
+123297c4b101        none                null
+ec95beed1ab7        host                host
+                        ```
+                        </script>
+					</section>   
+                    </section> 
+				</section>
+                
+                <section>
+                	<section>
+                        <h2>Networking diagram</h2>
+                        <p>[insert image - networking diagram.png]</p>
+                    </section>
+                    <section>
+                    <aside class="notes">
+                        <h3>Speaker Notes:</h3>
+                        <li>The docker0 interface is a virtual Ethernet bridge interface</li><br>
+                        <li>It passes or switches packets between two connected devices just like a physical bridge or switch</li>
+                        <div style="width: 100%; overflow: hidden;">
+                        <div class="half_container_one"><div class="table_cell">Host to container</div></div>
+                        <div class="half_container_two"><div class="table_cell">Container to container</div></div></div><br>
+                        <li>Each new container gets one interface that is automatically attached to the docker0 bridge</li>
+                    </aside>
+                    </section>
+				</section>
+                
+                <section>
+                	<section>
+					<h2>Creating your own network</h2>
+                    <li>We can setup our own network for running our containers</li><br>
+                    <li>Two types of networks we can create</li>
+                    <div style="width: 100%; overflow: hidden;">
+                    <div class="half_container_one"><div class="table_cell">Bridge</div></div>
+                    <div class="half_container_two"><div class="table_cell">Overlay</div></div></div>
+                    </section>
+                    
+                    <section>
+                    <li>A bridge network is very similar to the docker0 network (the default bridge network we’ve seen)</li><br>
+                    <li>An Overlay network can span across multiple hosts</li>
+                    <div class="table_cell">Also known as a multi-host network</div>
+                    </section>
+				</section>
+                
+                
+                <section>
+					<h2>Bridge Network</h2>
+                    <li>Containers must reside on the same host</li>
+                    <li>Containers in user defined bridge network can communicate with each other using their IP address and container name</li>
+                    <li>Docker 1.10 ships with an embedded DNS server to resolve container names to IP addresses</li>
+                    <p>[insert image: bridge network.png]</p>
+				</section>
+                
+                <section>
+					<h2>Multi-host networking</h2>
+                    <p>[Need to create new diagram for this, showing the UCP components as well]</p>
+				</section>
+                
+                <section>
+					<h2>Docker Compose and networking</h2>
+                    <li>Networking is supported in v2 Compose files</li>
+                    <li>By default Compose creates a bridge network for your application and runs all the containers defined by the services in your configuration file in that network</li>
+                    <li>Network name is the name of the project folder or it can be defined in the Compose file</li>
+				</section>
+                
+                
+                <section>
+                	<section>
+					<h2>Compose and overlay networks</h2>
+                    <li>Applications can consists of many containers</li>
+                    <li>Running all containers on the same host is not effective use of resources</li>
+                    </section>
+                    
+                    <section>
+                    <li>Compose can be configured to use the overlay driver</li><br>
+                    <div style="width: 100%; overflow: hidden;">
+                    <div class="table_cell">Containers will run on different nodes</div>
+                    <div class="table_cell">Compose will automatically create an overlay network across your nodes</div></div>
+                    </section>
+                    
+                    <section>
+                    <li>Nodes must be connected to a key/value store service such as etcd or consult</li><br>
+                    <div class="table_cell">UCP installation uses etcd</div>
+                    </section>
+				</section>
+                
+                <section>
+					<h2>Compose and Swarm</h2>
+                    <li>When a Compose application is run against Swarm, it will create an overlay network for the application by default</li>
+                    <li>Swarm will schedule the application containers across different nodes</li>
+                    <li>Network creation will fail if your nodes are not connected to a key/value store </li>
+                    <li>This behaviour was observed in Task 5</li>
+				</section>
+                
+                <section>
+					<h2>Post-Assessment</h2>
+				</section>
+                
+                <section>
+					<h2>Next Steps</h2>
+                    <li>Clean up steps (optional)</li>
+                    <li>Your assessment results</li>
+				</section>
+                
+                <section>
+					<h2>Ending Slide</h2><br>
+                    <h4><span class="accent_text_color">ign up for next course in series:</span> Live Fire Troubleshooting on DUCP</h4><br>
+                    <h4>Take Survey</h4>
+                    <p><a href="#">Link to Survey</a></p>
+				</section>
