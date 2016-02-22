@@ -1,19 +1,18 @@
+				<!--
 				<section>
 					<h1>Deploying UCP for Evaluation and in Production</h1>
                     <aside class="notes">Note:  Goal:  Be able to install Docker UCP both for evaluation and in production</aside>
                     <p><a href="https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1MJkorSprOvyarO4FJwVMthgDLx1cuHykaWFffMS8irE%2Fedit%3Fpli%3D1">Docs Resource</a> - <a href="https://www.google.com/url?q=http%3A%2F%2Fucp-beta-docs.s3-website-us-west-1.amazonaws.com">Beta Docs</a></p>
 				</section>
-                
+                -->
+				
             	<section>
 					<h2><span class="accent_text_color">Docker CaaS Training Series 1:</span> Deploying UCP for Evaluation and in Production</h2>
-				</section>
-            
-				<section>
-					<h2>Welcome to the course!</h2> 
-                    <aside class="notes">Speaker Notes: In this first course in the Docker CaaS training series you will learn the basics of Docker UCP by:</aside>
+					<aside class="notes">Speaker Notes: In this first course in the Docker CaaS training series you will learn the basics of Docker UCP by:
 					<li>Installing DUCP in a local environment</li>
 					<li>Installing DUCP for a production environment</li>
 					<li>Understand Docker basics</li>
+					</aside>
 				</section>
                 
                 <section>
@@ -23,10 +22,10 @@
                     <p><img src="images/4cid.png"></p><br>
                     <li>Passing the course: 70+ on final assessment.</li>
 				</section>
-                
+
                 <section>
 					<h2>Intro to Instructor</h2>   
-                    <p>Insert Pic Here</p>
+                    <p>Add instructor information and pic here</p>
 				</section>
                 
                 <section>					  
@@ -67,7 +66,9 @@
 						## Child slide
 
 						```
-						run command
+						$ docker pull training/docker-present
+						
+						$ docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock training/docker-present
   
 						```
 					</script>
@@ -97,14 +98,12 @@
                         <li>Isolated application platform</li>
                         <li>Contains everything needed to run your application</li>
                         <li>Based on one or more images</li>
-                    </section>
-                    <section>
                     	<h3 class="accent_text_color">Images</h3>
                         <li>Read only template used to create containers</li>
                         <li>Built by you or other Docker users</li>
                         <li>Stored in Docker Hub, Docker Trusted Registry or your own Registry</li>
-                    </section>
-                    <section><aside class="notes">
+                    
+                    <aside class="notes">
                     	<h3 class="accent_text_color">Speaker Notes:</h3>
                         <li>How containers work is that Docker, uses the kernel on the host operating system to basically run multiple root file systems</li>
                         <li>Each root file system is called a container</li>
@@ -116,6 +115,7 @@
                         <div class="half_container_two">
                             <div class="table_cell">Devices</div>
                             <div class="table_cell">Network stack</div>
-                        </div></aside>
+                        </div>
+					</aside>
                     </section>
 				</section>

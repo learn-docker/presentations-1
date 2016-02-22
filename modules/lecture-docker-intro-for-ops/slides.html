@@ -6,12 +6,22 @@
                         <li>VM vs Container</li>
                         <li>Ephemeral</li>
                         <li>Stateless vs stateful (app architecture)</li>
-                        </ul></div>
-                        <div class="half_container_two"><ul>
                         <li>Orders of magnitude</li>
                         <li>Size and density of storage</li>
                         <li>Speed</li>
+						<li>Immutable Infrastructure</li>
                         </ul></div>
+						<aside class="notes">
+							<li>talk about differences between containers and VMs. As IT ops, you are probably used to managing VMs. But what are the implications
+								of managing containers along with those VMs.</li> 
+							<li>VM’s are more infrastructure whereas containers are more applications. Each container is an app or part of an app</li>
+							<li>Ephemeral - with containers you can easily start and stop them. 
+								Can recreate the image and start the container again and its much faster than VM</li>
+							<li>Stateless vs Stateful - most containers are stateless. Stateful parts of applications are separated into different containers. this is part of the whole microservices architecture for applications. Compared with VMs, where you have both the application and state in the VM</li>
+							<li>Magnitude - You would have more containers compared to VMs. 10 to 1? Unlike VM’s where you can monitor each one, there could be far too many containers for 1 on 1 management. It’s more important to understand the application level management as opposed to individual containers. - All about microservices</li>
+							<li>Size - smaller footprint, lower start times</li>
+							<li>Immutable infrastructure - With VMs, if its running in production you can still make changes to the application in the VM, but you need to have the right tools setup. With containers, once it is up and running you generally don’t change things in the container. If the application needs to be re-configured, the apps team will re-build it and as IT ops, you would just re-deploy the container in the environment. </li>
+						</aside>
                     </section>
                     <section>
                         <h3 class="accent_text_color">What does this look like at scale?</h3>
