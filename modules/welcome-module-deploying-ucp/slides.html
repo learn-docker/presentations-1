@@ -30,6 +30,7 @@
 				
 				<section>
 					<h2>Session Logistics</h2>
+					<ul>
 					<li>4 hours duration</li>
 					<li>80% lab exercises, 20% lecture</li>
 					<li>Short break every hour</li>
@@ -39,32 +40,29 @@
 						<li>Mic and Speakers - Please use headset</li>
 						</ul>
 					</li>
-					<li>Ask questions at anytime
+					<li><b>Ask questions at anytime</b>
 						<ul>
 						<li>Unmute yourself and ask</li>
 						<li>Post in chat window</li>
 						</ul>
 					</li>
+					</ul>
 				</section>
 				
 				<section>
-					<h2>Assumed Knowledge</h2>
+					<h2>Assumed Knowledge and Requirements</h2>
 					<ul>
-					<li>You should have completed
+					<li>Recommended viewing <a href="http://training.docker.com/self-paced-training">http://training.docker.com/self-paced-training</a></li>
+					<li>Familiarity with using the Linux command line</li>
+					<li><a href="https://www.docker.com/products/docker-toolbox">Docker Toolbox</a> installed on your PC or Mac</li>
+					<li>You should know the basics of Docker
 						<ul>
-						<li>Deploying Docker Datacenter for Evaluation and Production</li>
-						<li>Managing Container Services with UCP</li>
+						<li>Run a Docker container</li>
+						<li>Search for and pull images from Docker Hub</li>
+						<li>Use Docker Toolbox on your local PC or Mac</li>
 						</ul>
 					</li>
-					<li>You should know how to
-						<ul>
-						<li>Install UCP on a production environment</li>
-						<li>Run a container in UCP</li>
-						<li>Install the client bundle</li>
-						<li>Launch applications using the client bundle</li>
-						<li>Use Docker Toolbox on their local PC or Mac</li>
-						</ul>
-					</li>
+					</ul>
 				</section>
 				
 				<section>
@@ -85,11 +83,15 @@
                 <section>					  
                     <section>
                     <h2>Agenda</h2>
+					<ul>
                     <li>Introduction</li>
                     <li>Pre-assessment</li>
                     <li>Docker Primer + Access Course Content</li>
+					</ul>
                     </section>
+					
                     <section>
+					<ul>
                     <li><span class="accent_text_color">Mini-Lecture:</span> Docker Architecture and Components</li>
                     <li><span class="accent_text_color">Task:</span> Deploying DUCP as a Sandbox</li>
                     <aside class="notes">Notes: This includes installing a local instance, deploying a Second Docker Host, and creating a container.</aside>
@@ -98,10 +100,14 @@
                     <aside class="notes">Notes: Same as above except a different environment, networking, RBAC, Certifications, and through CLI, HA.  Ends with an Upgrade</aside>
                     <li><span class="accent_text_color">Task:</span> Integrate with DTR</li>
                     <li><span class="accent_text_color">Mini-lecture:</span> Docker Trusted Registry</li>
+					</ul>
                     </section>
+					
                     <section>
+					<ul>
                     <li>Post-assessment</li>
                     <li>Next Steps</li>
+					</ul>
                     </section>
 				</section>
                 
@@ -113,12 +119,18 @@
                 <section>                
                     <section>
                         <h2>Get your course content</h2>   
-                        <p>Demo</p>
-                    </section>             
+                        <ul>
+						<li>Slides run on <a href="http://lab.hakim.se/reveal-js">Reveal JS</a></li>
+						<li>We have Dockerized the presentation</li>
+						<li>Run your own Reveal.js container to display the presentation locally</li>
+                    </section>     
+					
                     <section data-markdown>
 					<script type="text/template">
-						## Child slide
-
+						## Using Docker Toolbox
+						- Open your Docker Quickstart Terminal
+						- Run the following:   
+						
 						```
 						$ docker pull training/docker-present
 						
