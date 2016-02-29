@@ -14,6 +14,11 @@
 					<li>Understand Docker basics</li>
 					</aside>
 				</section>
+				
+				<section>
+					<h2>Intro to Instructor</h2>   
+                    <p>Add instructor information and pic here</p>
+				</section>
                 
                 <section>
 					<h2>A Note on Pedagogy</h2>   
@@ -22,20 +27,71 @@
                     <p><img src="images/4cid.png"></p><br>
                     <li>Passing the course: 70+ on final assessment.</li>
 				</section>
-
-                <section>
-					<h2>Intro to Instructor</h2>   
-                    <p>Add instructor information and pic here</p>
+				
+				<section>
+					<h2>Session Logistics</h2>
+					<ul>
+					<li>4 hours duration</li>
+					<li>80% lab exercises, 20% lecture</li>
+					<li>Short break every hour</li>
+					<li><b>GoToTraining Audio Options</b>
+						<ul>
+						<li>Phone conference - number is displayed on GTT application</li>
+						<li>Mic and Speakers - Please use headset</li>
+						</ul>
+					</li>
+					<li><b>Ask questions at anytime</b>
+						<ul>
+						<li>Unmute yourself and ask</li>
+						<li>Post in chat window</li>
+						</ul>
+					</li>
+					</ul>
 				</section>
-                
+				
+				<section>
+					<h2>Assumed Knowledge and Requirements</h2>
+					<ul>
+					<li>Recommended viewing <a href="http://training.docker.com/self-paced-training">http://training.docker.com/self-paced-training</a></li>
+					<li>Familiarity with using the Linux command line</li>
+					<li><a href="https://www.docker.com/products/docker-toolbox">Docker Toolbox</a> installed on your PC or Mac</li>
+					<li>You should know the basics of Docker
+						<ul>
+						<li>Run a Docker container</li>
+						<li>Search for and pull images from Docker Hub</li>
+						<li>Use Docker Toolbox on your local PC or Mac</li>
+						</ul>
+					</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Your lab environment</h2>
+					<ul>
+					<li>You have been given three AWS instances 
+						<ul>
+						<li>ucp-controller</li>
+						<li>ucp-node-0</li>
+						<li>ucp-node-1</li>
+						</ul>
+					</li>
+					<li>Instances will be used for lab exercises</li>
+					<li>Credentials and access key have been emailed</li>
+					</ul>
+				</section>
+					
                 <section>					  
                     <section>
                     <h2>Agenda</h2>
+					<ul>
                     <li>Introduction</li>
                     <li>Pre-assessment</li>
                     <li>Docker Primer + Access Course Content</li>
+					</ul>
                     </section>
+					
                     <section>
+					<ul>
                     <li><span class="accent_text_color">Mini-Lecture:</span> Docker Architecture and Components</li>
                     <li><span class="accent_text_color">Task:</span> Deploying DUCP as a Sandbox</li>
                     <aside class="notes">Notes: This includes installing a local instance, deploying a Second Docker Host, and creating a container.</aside>
@@ -44,10 +100,14 @@
                     <aside class="notes">Notes: Same as above except a different environment, networking, RBAC, Certifications, and through CLI, HA.  Ends with an Upgrade</aside>
                     <li><span class="accent_text_color">Task:</span> Integrate with DTR</li>
                     <li><span class="accent_text_color">Mini-lecture:</span> Docker Trusted Registry</li>
+					</ul>
                     </section>
+					
                     <section>
+					<ul>
                     <li>Post-assessment</li>
                     <li>Next Steps</li>
+					</ul>
                     </section>
 				</section>
                 
@@ -59,12 +119,18 @@
                 <section>                
                     <section>
                         <h2>Get your course content</h2>   
-                        <p>Demo</p>
-                    </section>             
+                        <ul>
+						<li>Slides run on <a href="http://lab.hakim.se/reveal-js">Reveal JS</a></li>
+						<li>We have Dockerized the presentation</li>
+						<li>Run your own Reveal.js container to display the presentation locally</li>
+                    </section>     
+					
                     <section data-markdown>
 					<script type="text/template">
-						## Child slide
-
+						## Using Docker Toolbox
+						- Open your Docker Quickstart Terminal
+						- Run the following:   
+						
 						```
 						$ docker pull training/docker-present
 						
