@@ -9,24 +9,38 @@
                     </section>
                     <section>
                         <h2>What features does DTR include?</h2>
-                        <li>Image registry to store images</li>
-                        <li>Pluggable storage drivers</li>
-                        <li>Web based GUI for admin configuration</li>
-                        <li>Easy and transparent upgrades</li>
-                        <li>Built in system usage metrics dashboard</li>
-                        <li>Logging</li>
+						<ul>
+							<li>Image registry to store images</li>
+							<li>Pluggable storage drivers</li>
+							<li>Web based GUI for admin configuration</li>
+							<li>Easy and transparent upgrades</li>
+							<li>Built in system usage metrics dashboard</li>
+							<li>Logging</li>
+							<li>Docker Notary Support</li>
+						</ul>
                         <aside class="notes">Speaker Notes: The following features differentiate DTR from Docker Hub, the normal registry server: Web based GUI for admin configuration, Easy and transparent upgrades, Built in system usage metrics dashboard, logging, and built in support for basic and LDAP authentication</aside>
                     </section>
+					
+					<section>
+						<h2>DTR Architecture</h2>
+						<p>
+						<img src="images/dtr.PNG"/>
+						</p>
+					</section>
                 </section>
+			
+				
                 
                 <section>
                 	<section>
                         <h2>DTR Primary Usage Scenarios</h2><br>
                         <h3 class="accent_text_color">CI/CD with Docker:</h3>
-                        <li>Centrally located base images</li>
-                        <li>Store individual build images</li>
-                        <li>Pull tested images to production</li>
-                        <li>Developer workflow is a commit</li>
+						<ul>
+							<li>Centrally located base images</li>
+							<li>Store individual build images</li>
+							<li>Pull tested images to production</li>
+							<li>Developer workflow is a commit</li>
+						</ul>
 						<aside class="notes">Speaker Notes:
 						The first is CI/CD. Many customers start here. This use case is focused on:
 						<li>Stored base images that can be reused as a base layer</li>
@@ -36,12 +50,15 @@
 						<li>Developers don’t know they are using docker (they just commit code through GH or SCCM of choice).</li>
 						</aside>
                     </section>
+					
                     <section>
                         <h3 class="accent_text_color">Containers-as-a-Service:</h3>
-                        <li>With Docker UCP</li>
-                        <li>Deploy Jenkins executors or Hadoop nodes</li>
-                        <li>Instant-on developer environment</li>
-                        <li>Select curated apps from a catalog</li>
+						<ul>
+							<li>With Docker UCP</li>
+							<li>Deploy Jenkins executors or Hadoop nodes</li>
+							<li>Instant-on developer environment</li>
+							<li>Select curated apps from a catalog</li>
+						</ul>
                         <aside class="notes">Speaker Notes:
 						The second use case is to deliver containers as a service. Think of this as a curated application catalog (like App Store) that teams can set up and allow individuals to deploy a ready-to-use container. Examples include jenkins executors and hadoop nodes. This is a classic use case for Docker Hub today and our intention is to make the two products look identical from a functional standpoint.
 
@@ -49,36 +66,16 @@
 					</section>
                 
 				</section>
- 
-                <section>
-                	<section>
-                        <h2>DTR Features:</h2><br>
-                        <h3 class="accent_text_color">General Features</h3>
-                        <li>Accounts and repos groups UI</li>
-                    </section>
-                    <section>
-                        <h3 class="accent_text_color">CI/CD with Docker</h3>
-                        <li>Image garbage collection</li>
-                        <li>Visual API runner and docs</li>
-                    </section>
-                    <section>
-                        <h3 class="accent_text_color">Registry as a Marketplace</h3>
-                        <li>Image deletion from index</li>
-                        <li>Search and browse index and UI</li>
-                    </section>
-                    <section>
-                        <h3 class="accent_text_color">Platform Features</h3>
-                        <li>Image provenance</li>
-                        <li>Docker Notary Support</li>
-                    </section>
-				</section>
+
                 
                 <section>
 					<h2>DTR Installation Requirements</h2>
-                    <li>DTR license</li>
-                    <li>Commercially supported version of Docker Engine (CS Engine)</li>
-                    <li>CS Engine only supported on RHEL v7.0, 7.1 or Ubuntu 14.04 LTS</li>
-                    <li>Download the RPM or DEB package from your Enterprise License page in Docker Hub and then copy it into your host machine</li>
+					<ul>
+						<li>DTR license</li>
+						<li>Commercially supported version of Docker Engine (CS Engine)</li>
+						<li>CS Engine only supported on RHEL v7.0, 7.1 or Ubuntu 14.04 LTS</li>
+						<li>Download the RPM or DEB package from your Enterprise License page in Docker Hub and then copy it into your host machine</li>
+					</ul>
 				</section>
                 
                 
@@ -88,27 +85,20 @@
                     </section>
                     <section>
                         <h3 class="accent_text_color">Public repositories created under a user account are openly available</h3>
-                        <li>Can pull images without authentication, even when managed authentication is enabled</li>
-                        <li>Still need to login to push images</li>
+						<ul>
+							<li>Can pull images without authentication, even when managed authentication is enabled</li>
+							<li>Still need to login to push images</li>
+						</ul>
                     </section>
                     <section>
                         <h3 class="accent_text_color">Private repositories created under a user account can only be accessed by:</h3>
-                        <li>The user who created the repo</li>
-                        <li>Any user with a global role</li>
+						<ul>
+							<li>The user who created the repo</li>
+							<li>Any user with a global role</li>
+						</ul>
                     </section>
 				</section>
-                
-                
-                <section>
-					<h2>Demo</h2>
-                    <aside class="notes"><h3 class="accent_text_color">Speaker Notes:  Demo the following</h3></aside>
-                    <li>Getting access to DTR</li>
-                    <li>Show DTR with a number of images and containers</li>
-                    <li>Configure DTR with Domain and ports, license, SSL certificates and authentication method</li>
-                    <li>Create a repo and push with unauthorized login</li>
-                    <li>Login and push again</li>
-                    <li>Pull an image from DTR</li>
-				</section>
+               
                 
                 
                 <section>
@@ -120,21 +110,17 @@
                 
                 <section>
 					<h2>LDAP authentication</h2>
-					<li>Connect to LDAP server for authentication</li>
-					<li>Usernames and passwords will be based on what is configured on the LDAP server</li>
-					<li>Your LDAP server may have thousands of users</li>
-						<ul>
-							<li>Do all of them need access?</li>
-						</ul>
-					<li>Filter for DTR registry users and DTR administrators</li>
-                        <aside class="notes">Speaker Notes:  Demo:  Instructor demo: Highlight the config page and explain each field if you think it is necessary. You don’t have to go into detail on each field because generally only 1 or 2 people in an enterprise worry about the details and this is something that is done once and left alone. </aside>
+					<ul>
+						<li>Connect to LDAP server for authentication</li>
+						<li>Usernames and passwords will be based on what is configured on the LDAP server</li>
+						<li>Your LDAP server may have thousands of users</li>
+							<ul>
+								<li>Do all of them need access?</li>
+							</ul>
+						<li>Filter for DTR registry users and DTR administrators</li>
+					</ul>
+                    <aside class="notes">Speaker Notes:  Demo:  Instructor demo: Highlight the config page and explain each field if you think it is necessary. You don’t have to go into detail on each field because generally only 1 or 2 people in an enterprise worry about the details and this is something that is done once and left alone. </aside>
 				</section>
-                
-                
-                <section>
-					<h2>Demo</h2>
-                    <aside class="notes">Speaker Notes:  Finish the lecture on DTR with a demo of server metrics, logging server, API console + Docs, Notary Integration, and storage backends</aside>
-				</section>
-                
+
                 
                 
