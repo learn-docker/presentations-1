@@ -1,6 +1,9 @@
 				<section data-background="#173432">
                 	<section>
                         <h2><span class="accent_text_color">Mini-lecture:</span> Docker Intro for Ops and Docker Datacenter</h2><br>
+					</section>
+					
+					<section>
                         <h3 class="accent_text_color">What should Operations know about Docker?</h3>
                         <div class="half_container_one"><ul>
                         <li>VM vs Container</li>
@@ -23,18 +26,109 @@
 							<li>Immutable infrastructure - With VMs, if its running in production you can still make changes to the application in the VM, but you need to have the right tools setup. With containers, once it is up and running you generally don’t change things in the container. If the application needs to be re-configured, the apps team will re-build it and as IT ops, you would just re-deploy the container in the environment. </li>
 						</aside>
                     </section>
+					
+					<!--
                     <section>
                         <h3 class="accent_text_color">What does this look like at scale?</h3>
                         <p>Use-cases with actual customers</p>
                         <aside class="notes">Note: will come from Marketing</aside>
                     </section>
+					-->
+					
                     <section>
-                        <h3 class="accent_text_color">Intro to Docker Datacent: CS Engine, DTR, UCP</h3>
-                        <p>Find Sales Slides</p>
+                        <h3 class="accent_text_color">Intro to Docker Datacenter</h3>
                     </section>
+					
                     <section>
-                        <p><a href="https://www.google.com/url?q=https%3A%2F%2Fwww.docker.com%2Fcompatibility-maintenance">Compatibility Matrix</a></p>
+						<h3 class="accent_text_color">Docker Datacenter</h3>
+						<ul>
+						<li>Integrated, end-to-end platform for agile application development and management in production</li>
+						</ul>
+						<p>
+						<img src="images/docker_datacenter.PNG"/>
+						</p>
                     </section>
+					
+					<section>
+						<h3 class="accent_text_color">Integration with existing enterprise systems</h3>
+						<p>
+						<img src="images/docker_datacenter_integration.PNG"/>
+						</p>
+					</section>
+					
+					<section>
+						<h3 class="accent_text_color">UCP Capabilities</h3>
+						<ul>
+							<li>Management at Scale
+								<ul>
+								<li>GUI management for apps, containers, nodes, networks, images, volumes</li>
+								<li>Manage a single Swarm cluster (100s of nodes, 1000s of containers)</li>
+								<li>Monitoring and logging of UCP events</li>
+								<li>Out of the box HA</li>
+								</ul>
+							</li>
+							<li>Enterprise Grade Controls
+								<ul>
+								<li>LDAP/AD integration</li>
+								<li>Role-based access control (RBAC) for teams</li>
+								<li>Push and pull images with DTR</li>
+								<li>Out of the box TLS</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h3 class="accent_text_color">UCP Capabilities (cont'd)</h3>
+						<ul>
+							<li>Docker Native Solution
+								<ul>
+								<li>Integrated with Swarm, Compose, CS Engine, and DTR</li>
+								<li>Fully Docker API compatible</li>
+								<li>Consistent Docker Experience with Docker CLI and Toolbox support</li>
+								<li>No change to developer workflow</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3 class="accent_text_color">Deploy and manage applications with UCP</h3>
+						<ul>
+							<li>Manage Containers
+								<ul>
+								<li>Deploy from GUI and set restart policies, environment variables, CPU and memory</li>
+								<li>Start, stop, destrop, rename, scale</li>
+								<li>View container log, stats</li>
+								<li>Login to container from browser</li>
+								</ul>
+							</li>
+							<li>Manage Compose apps
+								<ul>
+								<li>Deploy Compose apps using the client bundle</li>
+								<li>Start, stop or delete Compose apps</li>
+								<li>Inspect individual containers</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h3 class="accent_text_color">UCP Cluster Architecture</h3>
+						<p>
+						<img src="images/ucp_architecture.PNG"/>
+						</p>
+					</section>
+					
+					<section>
+						<h3 class="accent_text_color">Integrated networking</h3>
+						<ul>
+							<li>Create a network from the GUI</li>
+							<li>Select which network to deploy containers to</li>
+							<li>Your existing networks auto-populate the network pull down</li>
+						</ul>
+					</section>
+
 				</section>
                 
                 
