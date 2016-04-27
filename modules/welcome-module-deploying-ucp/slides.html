@@ -15,6 +15,7 @@
 					</aside>
 				</section>
 				
+				<!--
 				<section data-background="#1AAAF8" class="blue_bg">
 					<section data-background="#1AAAF8" class="blue_bg">
 						<h2>Intro to Instructor</h2>   
@@ -32,6 +33,15 @@
 							<li>Atlassian JIRA, Confluence, Bamboo, Bitbucket</li>
 							<li>Zendesk, GoodData, NGINX</li>
 						</ul>
+					</section>
+				</section>
+				-->
+				
+				<section data-background="#1AAAF8" class="blue_bg">
+					<section data-background="#1AAAF8" class="blue_bg">
+						<h2>Intro to Instructor</h2>   
+						<p>Put your instructio bio here</p>
+
 					</section>
 				</section>
                 
@@ -104,14 +114,14 @@
                     <li>Introduction</li>
                     <li>Pre-assessment</li>
                     <li>Docker Primer + Access Course Content</li>
-                    <li><span class="accent_text_color">Mini-Lecture:</span> Docker Architecture and Components</li>
-                    <li><span class="accent_text_color">Task:</span> Deploying DUCP as a Sandbox</li>
+                    <li><b>Mini-Lecture:</b> Docker Architecture and Components</li>
+                    <li><b>Task:</b> Deploying DUCP as a Sandbox</li>
                     <aside class="notes">Notes: This includes installing a local instance, deploying a Second Docker Host, and creating a container.</aside>
-                    <li><span class="accent_text_color">Mini-lecture:</span> Intro Docker Ops and Docker Datacenter</li>
-                    <li><span class="accent_text_color">Task:</span> Deploying DUCP in a Production Environment</li>
+                    <li><b>Mini-lecture:</b> Intro Docker Ops and Docker Datacenter</li>
+                    <li><b>Task:</b> Deploying DUCP in a Production Environment</li>
                     <aside class="notes">Notes: Same as above except a different environment, networking, RBAC, Certifications, and through CLI, HA.  Ends with an Upgrade</aside>
-                    <li><span class="accent_text_color">Task:</span> Integrate with DTR</li>
-                    <li><span class="accent_text_color">Mini-lecture:</span> Docker Trusted Registry</li>
+                    <li><b>Task:</b> Integrate with DTR</li>
+                    <li><b>Mini-lecture:</b> Docker Trusted Registry</li>
                     <li>Post-assessment</li>
                     <li>Next Steps</li>
 					</ul>
@@ -139,18 +149,10 @@
                     </section>     
 					
                     <section data-markdown data-background="#1AAAF8" class="blue_bg">
-					<script type="text/template">
-						## Using Docker Toolbox
-						- Open your Docker Quickstart Terminal
-						- Run the following:   
-						
-						```
-						$ docker pull training/docker-present
-						
-						$ docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock training/docker-present
-  
-						```
-					</script>
+						<h2>Using Docker Toolbox</h2>
+						<pre>
+docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock training/docker-present -p 8080
+						</pre>
 					</section>                
                 </section>
                 
