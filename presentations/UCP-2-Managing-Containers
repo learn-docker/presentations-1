@@ -10,3 +10,4 @@ task-deploy-simple-applications
 task-deploy-voting-app
 lecture-docker-networking
 task-deploy-voting-app-across-multiple-nodes
+ending-module-managing-container-services
