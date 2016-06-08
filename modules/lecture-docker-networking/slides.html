@@ -151,4 +151,23 @@ ec95beed1ab7        host                host</pre>
                         <li>This behaviour was observed in Task 5</li>
 					</ul>
                 </section>
+				
+                <section data-background="#445d6e" class="gray_bg">
+					<h2>V1 Compose files</h2>
+                    <ul>
+						<li>Networking is not supported on V1 Compose files</li>
+						<li>When connected to Swarm or UCP, Compose will still create an overlay network for your application but the containers will 
+						not be able to communicate if they are on different nodes</li>
+						<li>Containers with defined links will run on the same node as the linked container</li>
+					</ul>
+					<pre>
+javaclient:
+  image: trainingteam/hello-redis:1.0
+  links:
+    - redis:redisdb
+redis:
+  image: redis
+					</pre>
+					</ul>
+                </section>
                 
