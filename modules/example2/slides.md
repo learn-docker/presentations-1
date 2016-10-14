@@ -42,3 +42,22 @@ def example():
     do_something()
     do_something_else()
 ```
+
+---
+
+## Slide 5
+
+<div style="background-image: url(images/small_v.png)">
+
+This is a regular paragraph inline html next.
+
+<table>
+    <tr>
+        <td>Foo</td>
+        <td>Bar</td>
+    </tr>
+</table>
+
+This is another regular paragraph.
+
+</div>
