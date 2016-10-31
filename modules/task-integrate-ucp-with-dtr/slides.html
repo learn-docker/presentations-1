@@ -1,10 +1,15 @@
                 <section data-background="#00a2a1" class="green_bg">
 					<h2><img src="images/icon_task.png" class="slide_icon" alt="icon">Task: <br>Integrate UCP with DTR</h2>
-					<p>Follow the instructions at <a href="https://docs.docker.com/ucp/dtr-integration/">https://docs.docker.com/ucp/dtr-integration/</a> and connect your UCP instance to DTR</p>
-					<p><b>Note:</b>
-					<ul>
-						<li>You must follow all steps listed, including the ones marked as "optional"</li>
-					</ul>
+					<p><b>Step 1 - Get the DTR CA certificate</b>
+						<ul>
+							<li>Copy down the DTR CA certificate details and save it to a file called dtr-ca.pem on you local machine</li>
+							<li>For details see Step 2 at <a href="https://beta.docker.com/docs/ddc/ucp/configuration/dtr-integration/">https://beta.docker.com/docs/ddc/ucp/configuration/dtr-integration/</a></li>
+						</ul>
+					</p>
+					<p><b>Step 2 - Configure you Docker Engines to trust the DTR certifcate</b>
+						<ul>
+							<li>Follow Step 5 at <a href="https://beta.docker.com/docs/ddc/ucp/configuration/dtr-integration">https://beta.docker.com/docs/ddc/ucp/configuration/dtr-integration/</a></li>
+						</ul>
 					</p>
                     <aside class="notes"></aside>
 				</section>

@@ -1,0 +1,128 @@
+                <section data-background="#445d6e" class="gray_bg">
+					<section>
+						<h2><img src="images/icon_lecture.png" class="slide_icon" alt="icon"> Mini lecture: UCP architecture</h2>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Docker Engine Swarm mode</h2> 
+						<ul>
+							<li>Introduced in Engine 1.12</li>
+							<li>Native Docker solution for managing a cluster of Engines</li>
+							<li>UCP is built on top of Swarm</li>
+						</ul>
+					</section>    
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Swarm mode concepts</h2>
+						<ul>
+							<li>Swarm</li>
+							<ul>
+								<li>A cluster of Docker Engines where services are deployed</li>
+								<li>Engines participating in a cluster are running in swarm mode</li>
+								<li>Docker Engine CLI includes commands for swarm management, service deployment and orchestration</li>
+							</ul>
+							<li>Node</li>
+							<ul>
+								<li>An instance of a Docker engine participating in a Swarm</li>
+								<li>Can be a manager node or worker node</li>
+								<li>Managers are also workers</li>
+							</ul>
+						</ul>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Swarm mode architecture</h2>
+						
+						<img src="images/swarm-architecture.PNG"/>
+						
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Managers and Workers</h2>
+						<ul>
+							<li>Manager nodes:</li>
+							<ul>
+								<li>Maintaining cluster state</li>
+								<li>Scheduling services</li>
+								<li>Serving Swarm mode API endpoints</li>
+								<li>Implements raft consensus algorithm</li>
+							</ul>
+							<li>Worker nodes are responsible for running tasks (containers)</li>
+							<li>Manager nodes are also worker nodes by default</li>
+						</ul>
+					</section>
+						
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>UCP architecture</h2>
+						<ul>
+							<li>The UCP application consists of multiple containers running on the Commercially Supported (CS) Docker Engine </li>
+							<li>Each container runs a specific component of the application</li>
+							<li>Core component is a global service called <code>ucp-agent</code></li>
+							<li><code>ucp-agent</code> is run on the node that you first install UCP on and on any nodes that you join to the cluster</li>
+							<li><code>ucp-agent</code> deploys the other UCP containers and ensures they keep running
+						</ul>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Manager node containers</h2>
+						<ul>
+							<li><b><code>ucp-controller</code></b> - The UCP web server</li>
+							<li><b><code>ucp-auth-api</code></b> - The centralized service for identity and authentication used by UCP and DTR</li>
+							<li><b><code>ucp-auth-store</code></b> - Stores authentication configurations, and data for users, organizations and teams
+							<li><b><code>ucp-auth-worker</code></b> - Performs scheduled LDAP synchronizations and cleans authentication and authorization data
+							<li><b><code>ucp-client-root-ca</code></b> - A certificate authority to sign client bundles
+							<li><b><code>ucp-cluster-root-ca</code></b> - A certificate authority used for TLS communication between UCP components
+							<li><b><code>ucp-kv</code></b> - etcd service used to store the UCP configurations
+							<li><b><code>ucp-proxy</code></b> - A TLS proxy. It allows secure access to the local Docker Engine to UCP components
+							<li><b><code>ucp-swarm-manager</code></b> - Manager container for Docker Swarm (classic). Provides backwards compatability 
+						</ul>
+						
+						<aside class="notes"><b>Instructor Note: </b> Demo these containers with a quick docker ps on the node where you installed ucp</aside>
+						
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Worker node containers</h2>
+						<pre>
+ubuntu@ucp-node-0:~$ docker ps
+CONTAINER ID        IMAGE                          COMMAND                  ...      NAMES
+54698822f89b        docker/ucp-agent:2.0.0-beta3   "/bin/ucp-agent agent"   ...      ucp-agent.0.84unfhpysok1awc17752nnq7w
+3a666c8d2772        docker/ucp-agent:2.0.0-beta3   "/bin/ucp-agent proxy"   ...      ucp-proxy
+						</pre>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>UCP volumes</h2>
+						The following named volumes are used to persist data: 
+						<ul>
+							<li><b><code>ucp-auth-api-certs</code></b> - Certificate and keys for the authentication and authorization service</li>
+							<li><b><code>ucp-auth-store-certs</code></b> - Certificate and keys for the authentication and authorization store</li>
+							<li><b><code>ucp-auth-store-data</code></b> - Data of the authentication and authorization store</li>
+							<li><b><code>ucp-auth-worker-certs</code></b> - Certificate and keys for authentication worker</li>
+							<li><b><code>ucp-auth-worker-data</code></b> - Data of the authentication worker</li>
+							<li><b><code>ucp-client-root-ca</code></b> - Root key material for the UCP root CA that issues client certificates</li>
+							<li><b><code>ucp-cluster-root-ca</code></b> - Root key material for the UCP root CA that issues certificates for swarm members</li>
+
+						</ul>
+					</section>
+
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>UCP volumes (cont'd)</h2>
+						<ul>
+							<li><b><code>ucp-controller-client-certs</code></b> - Certificate and keys used by the UCP web server to communicate with other UCP components</li>
+							<li><b><code>ucp-controller-server-certs</code></b> - Certificate and keys for the UCP web server running in the node</li>
+							<li><b><code>ucp-kv</code></b> - UCP configuration data</li>
+							<li><b><code>ucp-kv-certs</code></b> - Certificates and keys for the key-value store</li>
+							<li><b><code>ucp-node-certs</code></b> - Certificate and keys for node communication</li>
+						</ul>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>UCP Integrations</h2>
+						
+						Placeholder slide - insert architecture diagram showing integration with LDAP, logging, monitoring etc...
+					</section>
+					
+				</section>
+                
+                

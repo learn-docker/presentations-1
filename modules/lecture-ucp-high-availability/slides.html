@@ -1,0 +1,107 @@
+                <section data-background="#445d6e" class="gray_bg">
+					<section>
+						<h2><img src="images/icon_lecture.png" class="slide_icon" alt="icon"> Mini lecture: UCP high availability</h2>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Multiple manager nodes</h2>
+						<ul>
+							<li>Running multiple manager nodes increases the fault tolerance of your cluster</li>
+							<li>If one manager fails, another will take its place</li>
+							<li>Can also load balance user requests across manager nodes</li>
+						</ul>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Fault tolerance</h2>
+						<ul>
+							<li>Adding more manager nodes increase the fault tolerance of your cluster</li>
+							<li>Downside is performance degradation</li>
+							<li>Must always have an odd number of managers</li>
+							<li>If a manager node goes down, try to bring it back up ASAP</li>
+							<li>Try to distribute managers across availability zones. That way if an entire zone goes down, the cluster can still continue working.</li>
+						</ul>
+						
+						<aside class="notes">
+						<b>Instructor Notes:</b>
+						<ul>
+							<li>More managers can decrease performance because any cluster changes need to be replicate across all the manager nodes. That's why the 
+							maximum advisable number of managers is 7 </li>
+							<li>You must have an odd number of managers because the managers need to vote on the state of the cluster and there needs to be a majority 
+							to acheive a quorum. An odd number of managers ensures there will always be a majority vote. If we have an even number of managers, let's say 
+							we have 2, the vote may be split 1-1 and thus the managers can't come to an agreement on the state, which can cause problems. </li>
+						</ul>
+						</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>How many managers ? </h2>
+						<table>
+						<thead>
+							<tr>
+								<th>Number of manager nodes</th>
+								<th>Failures tolerated</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>N</td>
+								<td>(N-1) / 2 </td>
+							</tr>
+						</tbody>
+						</table>
+						
+						<ul>
+							<li><b>Note: </b>Having a 3 manager node setup does not provide true failover</li>
+						
+						<aside class="notes">
+						<b>Instructor notes:</b>
+						<ul>
+							<li>When you have 3 nodes, only 1 failure is tolerated because if you have 1 failure you end up with 2 managers, which is bad because 
+							with this even number there is a fair chance of disagreement between the managers, which will cause problems when you try to perform any
+							operation in the cluster. So with a 3 manager node cluster, you don't have a true failover setup. If one node fails, your cluster will still
+							be alive and applications will still be running, but your ability to perform any operation will be limited </li>
+							<li>When there's 5 managers, if one fails you have 4. Even though this is an even number, the changes of a 2-2 disagreement is much lower 
+							than when you have 2 managers and they split their vote 1-1. </li>
+						</ul>
+						
+					</section>
+					
+					
+					<section data-background="#445d6e" class="gray_bg">		
+						<h2>Load balancing managers</h2>
+						
+						<ul>
+							<li>If you have DNS configured to one particular UCP manager node and that node goes down, you won't be able to access UCP</li>
+							<li>To solve this problem, put a load balancer in front</li>
+							<li>Load balancer configuration</li>
+							<ul>
+								<li>Load balance traffic on ports 80 and 443</li>
+								<li>Don't terminate HTTPS connections as UCP uses mutual TLS</li>
+								<li>Use the <code>/_ping</code> endpoint on each manager node to check if it's heathly and if it should remain in the load balancing pool</li>
+							</ul>
+						</ul>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">		
+						<h2>Load balancing example </h2>
+						
+						<img src="images/manager_load_balancing.PNG" width="75%" height="auto"/>
+					</section>
+				</section>
