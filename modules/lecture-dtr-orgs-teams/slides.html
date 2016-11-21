@@ -1,0 +1,153 @@
+     
+                <section data-background="#445d6e" class="gray_bg">
+				    <section data-background="#445d6e" class="gray_bg">
+						<h2><img src="images/icon_lecture.png" class="slide_icon" alt="icon">Mini-lecture: <br>Organizations and Teams</h2>
+					</section>
+				
+                    <section data-background="#445d6e" class="gray_bg">
+                        <h2>Public repositories </h2>
+						
+						<ul>
+							<li>Public repositories created under a user account</li>
+							<ul>
+								<li>Openly available</li>
+								<li>Can pull images with authentication</li>
+								<li>Visible to all users of DTR repository dashboard</li>
+								<li>Only the repository author and DTR admins are allowed to push images</li>
+							</ul>
+							<li>Public organization repositories</li>
+							<ul>
+								<li>Anyone can pull images</li>
+								<li>Visible to all users of DTR repository dashboard</li>
+								<li>Teams with <b>read-write</b> access can push images</li>
+							</ul>
+						</ul>
+                    </section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Private repositories</h2>
+						
+						<ul>
+							<li>Private repositories created under a user account</li>
+							<ul>
+								<li>Only accessibile to the repository author and DTR admins</li>
+							</ul>
+							<li>Private organization repositories</li>
+							<ul>
+								<li>Only accessibile to certain teams within the organization</li>
+								<li>Teams can be given read-only or read-write or admin access to the repository.
+								<li>Repository will not appear on DTR dashboard if a user does not have access to it</li>
+								<li>Users trying to push or pull images from it will get an <b>Error, not found</b> message.</li>
+							</ul>
+						</ul>
+						
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Organizations</h2>
+						
+						<ul>
+							<li>Allows users to be grouped</li>
+							<li>Organization name is used for repositories belonging to the organization</li>
+						</ul>
+						
+						<img src="/images/create_organization.PNG"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Teams</h2>
+						<div class="half_container_one">
+							<ul>
+								<li>Allows grouping of members within an organization</li>
+								<li>Fine grained permission control for organization repositories</li>
+							</ul>
+						</div>
+						
+						<div class="half_container_two">
+							<img src="/images/create_team.PNG" width="50%"/>
+						</div>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Configuring team members</h2>
+						
+						<ul>
+							<li>Click the <b>Add user</b> button</li>
+							<li>Select users from the list and click save</li>
+							<li>Can configure membership level afterwards</li>
+							<ul>
+								<li>member</li>
+								<li>admin</li>
+							</ul>
+							<li>A user can belong to multiple teams and multiple organizations.</li>
+						</ul>
+						
+						<img src="/images/configure_team.PNG" width="75%"/>
+						
+						<aside class="notes">A team admin can add other people to the team. However this has to be done through the API. It is not available in the 
+						UI at this stage</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Adding repositories to a team</h2>
+						
+						<ul>
+							<li>Repositories must be added to a team before permissions can be configured</li>
+							<li>Can create a new repository, which will be automatically associated with the organization</li>
+						</ul>
+						
+						<img src="/images/add_repo.PNG"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Repository permissions</h2>
+						
+						<ul>
+							<li>Read only</li>
+							<ul>
+								<li>Can browse and repository and pull images</li>
+							</ul>
+							<li>Read write</li>
+							<ul>
+								<li>Can do everything from the read only permission</li>
+								<li>Push images</li>
+								<li>Delete tags</li>
+							</ul>
+							<li>Admin</li>
+							<ul>
+								<li>Can do everything from read only and read write permissions</li>
+								<li>Edit repository descriptiom</li>
+								<li>Set public or private</li>
+								<li>Change team access level</li>
+							</ul>
+						</ul>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Organization members</h2>
+						
+						<ul>
+							<li>Users can belong to an organization without belonging to a team</li>
+							<li>Team members are automatically organization members</li>
+							<li>Organization members can:</li>
+							<ul>
+								<li>View other members</li>
+								<li>View organization teams and their members</li>
+								<li>View and pull images from public repositories in the organization</li>
+							</ul>
+							<li>Organization members do not have the ability to push images to a repository. They must belong to a team with the right permission</li>
+						</ul>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Organization admins</h2>
+						
+						<ul>
+							<li>Individual organization members can be made into an organization admin</li>
+							<li>Organization admins have full admin access to all repositories in that organization</li>
+							<li>Can add users to the organization</li>
+							<li>Can create and configure teams in the organization</li>
+						</ul>
+					</section>
+					
+                </section>

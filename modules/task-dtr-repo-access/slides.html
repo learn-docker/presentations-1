@@ -1,0 +1,38 @@
+                <section data-background="#00a2a1" class="green_bg">
+				
+					<section data-background="#00a2a1" class="green_bg">
+						<h2><img src="images/icon_task.png" class="slide_icon" alt="icon"> Task: Testing Repository Access</h2>
+						
+						
+						<p><b>Step 1 - Create private repository</b></p>
+						<p>
+						1. Create a private repository for the <b>engineering</b> organization called core-app<br/>
+						2. Configure both the <b>database</b> and <b>web</b> teams to have read only access to the core-app repo<br/>
+						3. Tag and push a hello-world image into the repository. Use the tag 1.0<br/>
+							
+						<code>$ docker tag hello-world <dtr domain>/engineering/core-app:1.0 </code><br/>
+						<code>$ docker push <dtr domain>/engineering/core-app:1.0 </code><br/>
+						
+						</p>
+						
+						<p><b>Step 2 - Test access </b></p>	
+						<p>
+						1. Login to the DTR web UI as <b>Chloe</b>, then <b>barry</b>, and then <b>John</b>. What do you notice with the list of 
+							repositories? <br/>
+						2. Login to the UCP web UI as <b>John</b> and pull the <code><dtr domain>/engineering/core-app:1.0</code> image. What do you notice?
+						</p>
+					</section>
+					
+					<section data-background="#00a2a1" class="green_bg">
+						
+						<p><b>Step 3 - Promote to organization admin</b></p>
+						<p>
+						1. Login to DTR web UI as the admin. <br/>
+						2. Promote  the user <b>John</b> to become an administrator in the <b>engineering</b> organization <br/>
+						3. Now login to DTR as <b>John</b>. What can you observe in the list of repositories</b> </br>
+						4. Switch back to UCP (you should be logged in as <b>John</b>). </br>
+						5. Pull the <code><dtr domain>/engineering/core-app:1.0</code> image. 
+						</p>
+						
+					</section>
+				</section> 

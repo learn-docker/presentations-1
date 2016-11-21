@@ -1,0 +1,221 @@
+     
+                <section data-background="#445d6e" class="gray_bg">
+				    <section data-background="#445d6e" class="gray_bg">
+						<h2><img src="images/icon_lecture.png" class="slide_icon" alt="icon">Mini-lecture: <br>Content Trust</h2>
+					</section>
+				
+                    <section data-background="#445d6e" class="gray_bg">
+                        <h2>Content Trust </h2>
+						
+						<ul>
+							<li>Docker Content Trust allows us to ensure the integrity and publisher of Docker images</li>
+							<li>Client side signing and verification of image tags can be enforced</li>
+							<li>Image publishers sign their images</li>
+							<li>Image consumers can ensure their images are signed</li>
+							<li>Integrates The Update Framework (TUF) into Docker using Notary</li>
+							<ul>
+								<li><a href="http://theupdateframework.com/">http://theupdateframework.com/</a></li>
+								<li><a href="https://github.com/docker/notary">https://github.com/docker/notary</a></li>
+							</ul>
+						</ul>
+                    </section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>How content trust works for publishers</h2>
+						
+						<ul>
+							<li>Content trust is associated with the tag of an image</li>
+							<li>Trust for an image tag is managed through the use of signing keys</li>
+							<li>Four different keys are used</li>
+							<ul>
+								<li>Root key</li>
+								<li>Target key</li>
+								<li>Snapshot key</li>
+								<li>Timestamp key</li>
+							</ul>
+							<li>When pushing images to a repository the image is signed with the tagging key</li>
+							<li>Different repositories can use the same root key</li>
+						</ul>
+						
+						<aside class="notes">
+							The root key is also known as the offline key. The target key is also known as the repository key and the snapshot key is also known as the 
+							tagging key. I've used the terms, root, target and snapshot as those are the terms users will see on the CLI output.
+						</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Signed and unsigned tags</h2>
+						
+						<img src="images/repo-tags.PNG" width="60%"/>
+						
+						<aside class="notes">
+						This diagram here illustrates how we can have both signed and unsigned tags in the same repository. 
+						</aside>
+					</section>
+
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Signed and unsigned tags (cont'd)</h2>
+					
+						<ul>
+							<li>When content trust is enabled, publishers can choose to sign or not to sign an image tag</li>
+							<li>The same tag can be both signed and unsigned</li>
+							<li>Content of a signed and unsigned tag with the same name may not be the same. For example:</li>
+								<ul>
+									<li><code>myimage:1.0`</code> signed and <code>`myimage:1.0`</code> unsigned can have different content despite sharing the same repository name and tag</li>
+								</ul>
+							<li>Can iterate over unsigned images before signing them for release</li>
+						</ul>
+						
+						<aside class="notes">
+						<b>From https://docs.docker.com/engine/security/trust/content_trust/.</b>
+						<p>
+						Publishers can choose to sign a specific tag or not. As a result, the content of an unsigned tag and that of a signed tag with the 
+						same name may not match. For example, a publisher can push a tagged image someimage:latest and sign it. 
+						Later, the same publisher can push an unsigned someimage:latest image. This second push replaces the last 
+						unsigned tag latest but does not affect the signed latest version. The ability to choose which tags they can sign, 
+						allows publishers to iterate over the unsigned version of an image before officially signing it.
+						</p>
+						</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>How content trust works for image consumers</h2>
+						
+						<ul>
+							<li>If content trust is enabled, only signed images can be used to run containers</li>
+							<li>Only signed image tags are visible. Tags that are unsigned do not appear</li>
+							<li>If content trust is not enabled, both signed and unsigned tags can be used</li>
+						</ul>
+						
+						<aside class="notes">
+							Regarding the point "Only signed image tags are visible. Tags that are unsigned do not appear", I think this 
+							only applies when searching for image tags through the Docker CLI. If you browse your Docker Hub or DTR repo, through the web 
+							browser, you would still be both signed an unsigned tags
+						</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Content trust Keys</h2>
+						<img src="images/trust_keys.PNG" width="50%"/>
+						
+					</section>
+					
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Notary</h2>
+						
+						<ul>
+							<li>A utility tool for securely publishing and verifying content </li>
+							<li>Uses a client / server approach for running and interacting with trusted collections</li>
+							<li>Notary is integrated into the Docker Engine for the purpose of providing content trust on Docker images.</li>
+						</ul>
+							
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Content trust in DTR</h2>
+						
+						<ul>
+							<li>DTR comes with a built in Notary server</li>
+							<li>Notary server must be configured to store signed metadata about trusted images</li>
+							<li>Users can interact with the Notary server by using the Notary CLI</li>
+						</ul>
+							
+					</section>
+					
+					
+                </section>
+				
+				
+				<section data-background="#445d6e" class="gray_bg">
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Content trust workflow</h2>
+						
+						<img src="/images/delagation1.PNG" width="80%"/>
+						
+						<aside class="notes">
+							<p>
+							Let's use an example to illustrate the process of setting up content trust for your DTR repositories.
+							</p>
+							<p>
+							Here we have a DTR server with a few repos setup. We have an admin and a developer. The admin, is a figurative representation of someone 
+							who is in charge of a particular set of repositories. In reality this could be a development manager or a product manager etc... Let's say
+							that repo 1 and repo 2 in the diagram are organizational repos and our Admin user is the person in charge of that particular organization
+							</p>
+						</aside>
+							
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						
+						<img src="/images/delagation2.PNG" width="80%"/>
+						
+						<aside class="notes">
+							<p>
+							The first thing we want to do is to initialise our trusted collection. We run the command <code>notary init -p</code> The -p option means to
+							publish the changes to the notary server straight away. Usually the notary CLI will stage the changes on the client side, similar to how Git 
+							stages changes, and we would have to run a separate command to publish the changes to the server.
+							</p>
+						
+							<p>
+							When we run the init command, you can see how this will create the root key, targets key and the snapshot key. These keys will exist on the 
+							filesystem on the "Admin" users' machine.
+							</p>
+						</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						
+						<img src="/images/delagation3.PNG" width="80%"/>
+						
+						<aside class="notes">
+							<p>The Snapshots key is what's used to sign images. However only our Admin user has this key at the moment. And in most cases the this user is 
+							   not going to be the only person signing images. We want to allow our developer user to sign images in repo1 as well. But we don't want to just
+							   pass over the snapshot key.
+							</p>
+							
+							<p>
+							   So what we do here is we "rotate" the snapshot key so that it's now managed by the Notary server. This is denoted by the --server-managed flag 
+							   at the end of our command. We are now in a position to delagate the image signing to our developer user
+							</p>
+						</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						
+						<img src="/images/delagation4.PNG" width="80%"/>
+						
+						<aside class="notes">
+							<p>In order for us to delagate image signing to other users, we must get each users' cert.pem file. In this scenario our developer user is sending
+							   over his/her cert.pem file. This cert.pem file is found in the UCP client bundle for each user. Transfer of the file can be done
+							   by any secure means. (i.e using SCP or physically handing over the file via a usb drive)
+							</p>
+						</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						
+						<img src="/images/delagation5.PNG" width="80%"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						
+						<img src="/images/delagation6.PNG" width="80%"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						
+						<img src="/images/delagation7.PNG" width="80%"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						
+						<img src="/images/delagation8.PNG" width="80%"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						
+						<img src="/images/delagation9.PNG" width="80%"/>
+					</section>
+					
+				</section>
