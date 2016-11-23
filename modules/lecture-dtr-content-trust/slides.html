@@ -196,26 +196,61 @@
 					<section data-background="#445d6e" class="gray_bg">
 						
 						<img src="/images/delagation5.PNG" width="80%"/>
+						
+						<aside class="notes">
+						<p>
+							Once we have the developers cert.pem file, we can run the notary delagation add command and specify the cert.pem file as out input.
+						</p>
+						</aside>
 					</section>
 					
 					<section data-background="#445d6e" class="gray_bg">
 						
 						<img src="/images/delagation6.PNG" width="80%"/>
+						
+						<aside class="notes">
+						<p>
+							Once we run the delagation command, the develop can now sign images using a delagation key. But first they must import the key by running this 
+							notary key import command. we specify the key.pem file with the command. This key.pem  file is part of the users client bundle.
+						</p>
+						</aside>
 					</section>
 					
 					<section data-background="#445d6e" class="gray_bg">
 						
 						<img src="/images/delagation7.PNG" width="80%"/>
+						
+						<aside class="notes">
+						<p>
+							Now that we have our delagation key, as a developer, we can sign the image tags we want to push. First we enable content trust 
+							with the export DOCKER_CONTENT_TRUST=1 variable.
+						</p>
+						</aside>
 					</section>
 					
 					<section data-background="#445d6e" class="gray_bg">
 						
 						<img src="/images/delagation8.PNG" width="80%"/>
+						
+						<aside class="notes">
+						<p>
+							And now when we push our image tag into DTR, it will use the delagation key to sign the image
+						</p>
+						</aside>
 					</section>
 					
 					<section data-background="#445d6e" class="gray_bg">
 						
 						<img src="/images/delagation9.PNG" width="80%"/>
+						<aside class="notes">
+						<p>
+						   This procedure of initializing a repo for content trust and delagating other signers needs to be repeated for each repository. 
+						   Usually the person responsible for this is the owner of that repo. Here in this screen, our Admin user is initializing repo 2 for 
+						   content trust. The same root key from before is used to perform the initialization. So you can see in the diagram that the admin user 
+						   still only has the one root key. A new targets key and snapshots key is created for repo 2. 
+						</p>
+						</aside>
+							
 					</section>
 					
 				</section>
