@@ -1,0 +1,102 @@
+                <section data-background="#445d6e" class="gray_bg">
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2><img src="images/icon_lecture.png" class="slide_icon" alt="icon"> Mini Lecture: Docker Engine Swarm Mode</h2>
+					</section>
+				
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Overview of Swarm Mode</h2>
+						
+						<ul>
+							<li>Docker Engine 1.12 features SwarmKit integration</li>
+							<li>The Docker CLI features three new commands:</li>
+							<ul>
+								<li><code>docker swarm </code> (enable Swarm mode; join a Swarm; adjust cluster parameters)</li>
+								<li><code>docker node</code> (view nodes; promote/demote managers; manage nodes)</li>
+								<li><code>docker service </code>(create and manage services)</li>
+							</ul>
+							<li>The Docker API exposes the same concepts</li>
+							<li>The SwarmKit API is also exposed (on a separate socket)</li>
+						</ul>
+					</section>
+
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Key concepts</h2>
+						
+						<ul>
+							<li>Swarm</li>
+							<ul>
+								<li>A cluster of Docker Engines where services are deployed</li>
+								<li>Engines participating in a cluster are running in <b>swarm mode</b></li>
+								<li>Docker Engine CLI includes commands for swarm management, service deployment and orchestration</li>
+							</ul>
+							<li>Node</li>
+							<ul>
+								<li>An instance of a Docker engine participating in a Swarm</li>
+								<li>Can be a <b>manager</b> node or <b>worker</b> node</li>
+								<li>Managers are also workers</li>
+							
+							</ul>
+						</ul>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Services</h2>
+						
+						<ul>
+							<li>A <i><b>service</b></i> is the definition of the tasks to execute on the worker nodes</li>
+							<li>Primary point of user interaction with the swarm</li>
+							<li>A <i><b>service</i></b> is specified by its <b><i>desired state:</i></b> which image to run, how many instances …</li>
+							<li>Replicated vs global</li>
+						</ul>
+						
+						<aside class="notes">
+						Replicated services is where we specify how many tasks to run for the service and these tasks are distributed among our nodes.
+						Global services is where the swarm runs one task for the service on every node
+						</aside>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Tasks</h2>
+						
+						<ul>
+							<li>A <b>task</b> represents a unit of work assigned to a node</li>
+							<li>Atomic scheduling unit of swarm</li>
+							<li>Manager nodes will assign tasks to worker nodes based on the number of replicas specified in the service definition</li>
+							<li>A <b>task</b> corresponds to a specific container</li>
+						</ul>
+					</section>
+
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Illustration of Swarm Mode</h2>
+						
+						<img src="images/swarm1.PNG" width=80%"/>
+					</section>
+
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Illustration of Swarm Mode (cont'd)</h2>
+						
+						<img src="images/swarm2.PNG" width="80%"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Illustration of Swarm Mode (cont'd)</h2>
+						
+						<img src="images/swarm3.PNG" width="80%"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Illustration of Swarm Mode (cont'd)</h2>
+						
+						<img src="images/services.PNG" width="80%"/>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Illustration of Swarm Mode (cont'd)</h2>
+						
+						<img src="images/service-task-container.PNG" width="80%"/>
+					</section>
+					
+					
+				</section>
+				
