@@ -5,3 +5,4 @@ task-deops-load-balancing
 task-deploy-multi-service-app
 lecture-module-docker-swarm
 task-deploy-applications-with-gui
+task-deploy-multi-node-application
