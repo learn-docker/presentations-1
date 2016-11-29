@@ -1,0 +1,125 @@
+                <section data-background="#445d6e" class="gray_bg">
+					<section>
+						<h2><img src="images/icon_lecture.png" class="slide_icon" alt="icon"> Mini lecture: UCP Networking</h2>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Exposing a Service</h2>
+						
+						<ul>
+							<li>Services can be exposed on a host port, with two special properties: </li>
+							<ul>
+								<li>the public port is available on every node of the Swarm</li>
+								<li>requests coming on the public port are load balanced across all instances</li>
+							</ul>
+						</ul>
+						
+						<img src="images/exposing_ports.PNG"/>
+					</section>
+
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Services and ports</h2>
+						
+						<ul>
+							<li>When publishing a service port, that service is accessible on that port on any node in the cluster</li>
+							<li>Node does not have to have a container running that service</li>
+							<li>Your service port is reserved on every node</li>
+							<li>To check the ports your service containers are exposed on, check the **Published Ports** section in your service details</li>
+						</ul>
+						
+						<img src="images/published_ports.PNG"/>
+
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Routing Mesh</h2>
+						
+						<div class="half_container_one">
+							<img src="images/routing_mesh.PNG"/>
+						</div>
+						
+						<div class="half_container_two" style="text-align: right;">
+						<ul>
+							<li>Swarm wide ingress port reserved for <code>webapp</code></li>
+							<li>Every node listens on port 80</li>
+							<li>Container aware routing mesh can transparently route traffic from worker 3 to a node that is running the container</li>
+							<li>Built in load balancing</li>
+							<li>DNS based service discovery</li>
+						</ul>
+						</div>
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">	
+						<h2>Overlay networks</h2>
+						
+						<ul>
+							<li>Our application containers need to communicate with each other</li>
+							<li>But what happens when they are on different nodes? </li>
+							<li>We need an overlay network (also known as a multi-host network)</li>
+							<li>Swarm Mode integrates with overlay networks, without requiring an extra key/value store</li>
+							<li>We can use the overlay driver to create our network</li>
+						</ul>	
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Overlay Networks (cont'd)</h2>
+						
+						<div class="half_container_one">
+							<img src="images/overlay.PNG"/>
+						</div>
+						
+						<div class="half_container_two" style="text-align: right;">
+						<ul>
+							<li>The overlay network will span across nodes where our service containers are running</li>
+							<li>Also spans across all manager nodes</li>
+						</ul>
+						</div>
+						
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>The Ingress Network</h2>
+						
+						<ul>
+							<li>A default network created when Swarm mode is enabled</li>
+							<li>All nodes participate in the ingress routing mesh</li>
+							<li>Enabled nodes to accept connections on all published ports for any service running in the swarm, even if there's no task running on the node</li>
+							<li>Routes incoming requests on published ports to an active container</li>
+							<li>All containers that are part of a service, with published ports, run on the <code>ingress</code> network</li>
+						</ul>
+						
+						<aside class="notes">
+						"All containers that are part of a service, with published ports, run on the `ingress` network" - If you do not publish any ports, the container will run on the default bridge network. If you choose 
+						to attach the service to your own network the containers will run on that network AND on the ingress network if you have published ports.
+						
+						<p>
+						<b>Note to instructor: Demo the Networks page here</b>
+						</p>
+						</aside>
+						
+					</section>
+					
+					<section data-background="#445d6e" class="gray_bg">
+						<h2>Network Scope</h2>
+						
+						<ul>
+							<li>Overlay networks created in Swarm mode are only available to Swarm services</li>
+							<li>This is indicated by looking at the network scope on the <code>docker network ls</code> command or the <b>Networks</b> page in UCP</li>
+						</ul>
+						
+						<pre>
+ubuntu@ucp-controller:~$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+0b981327ecc6        bridge              bridge              local
+23d551207c9f        docker_gwbridge     bridge              local
+bfb143bdb15b        host                host                local
+8ebch86hnyfi        ingress             overlay             swarm
+3fkq8rc4f6ol        my_app              overlay             swarm
+93d908ff61e9        none                null                local
+						</pre>
+					</section>
+					
+				</section>
+                
+                
