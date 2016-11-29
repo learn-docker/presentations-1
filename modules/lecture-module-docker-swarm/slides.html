@@ -1,13 +1,19 @@
                 <section data-background="#445d6e" class="gray_bg">
-					<h2><img src="images/icon_lecture.png" class="slide_icon" alt="icon"> Mini Lecture: Docker Swarm</h2>
+					<h2><img src="images/icon_lecture.png" class="slide_icon" alt="icon"> Mini Lecture: Docker Classic Swarm</h2>
 				</section>
                 
                 
                 
                 <section data-background="#445d6e" class="gray_bg">
-					<h2>What is Docker Swarm</h2>
+					<h2>What is Classic Swarm</h2>
                     <ul>
-                        <li>Native tool that clusters Docker hosts and schedules containers on them</li>
+						<li>"Classic Swarm" is our unofficial term for referring to the previous open source Swarm project</li>
+						<ul>
+							<li><a href="https://github.com/docker/swarm">https://github.com/docker/swarm</a></li>
+							<li><a href="https://docs.docker.com/swarm/overview/">https://docs.docker.com/swarm/overview/</a></li>
+						</ul>
+						<li>Was Docker's native clustering solution before the introduction of Swarm mode in Engine 1.12</li>
+                        <li>Tool that clusters Docker hosts and schedules containers on them</li>
                         <li>Allows us to distribute container workloads</li>
                         <li>Serves the standard Docker API</li>
                         <li>Ships with simple scheduling and discovery backend</li>
@@ -18,9 +24,41 @@
                 
                 <section data-background="#445d6e" class="gray_bg">
 					<h2>How Swarm works</h2>
-					<p><img src="images/Swarm diagram.PNG"></p>
+					<p><img src="images/classic_swarm_1.PNG" width="80%"></p>
+					
+					<aside class="notes">
+					Ok, let's sat we start with our 1 node. We have our Docker Engine installed and our CLI on the same node pointing to the Engine
+					</aside>
+				</section>
+				
+				<section data-background="#445d6e" class="gray_bg">
+					<h2>How Swarm works (cont'd)</h2>
+					<p><img src="images/classic_swarm_2.PNG" width="80%"></p>
+					
+					<aside class="notes">
+					We want to get a cluster of Engines up and running so let's provision two additional nodes, with Docker Engines installed.
+					</aside>
 				</section>
                 
+				<section data-background="#445d6e" class="gray_bg">
+					<h2>How Swarm works (cont'd)</h2>
+					<p><img src="images/classic_swarm_3.PNG" width="80%"></p>
+					
+					<aside class="notes">
+					We then go back to our original host and install a Swarm Manager. This manager is usually installed and run in a container. Then we join our two nodes 
+					via the manager, so our manager knows which nodes are part of the cluster. How it keeps track of the nodes depends on the scheduling backend you choose.
+					</aside>
+				</section>
+				
+				<section data-background="#445d6e" class="gray_bg">
+					<h2>How Swarm works (cont'd)</h2>
+					<p><img src="images/classic_swarm_4.PNG" width="80%"></p>
+					
+					<aside class="notes">
+					Finally, on our host, we no longer have our CLI pointed to the Docker Engine on the host, we point it to the Swarm manager instead. That way when we run our docker commands, it goes through the manager. 
+					For example, if we did a docker run command to schedule a container, the manager would be able to decide which node to run the container on. The Swarm manager supports the standard docker API.
+					</aside>
+				</section>
                 
                 
                 <section data-background="#445d6e" class="gray_bg">
@@ -37,51 +75,22 @@
                 
                 
                 <section data-background="#445d6e" class="gray_bg">
-					<h2>Swarm and UCP</h2>
+					<h2>Classic Swarm and UCP 2.0</h2>
                     <ul>
-                        <li>UCP runs on Swarm</li>
-                        <li>Acts as a GUI for Swarm so you don’t have to use commands to run containers</li>
-                        <li>Adds user management capabilities</li>
-                        <li>Easy way to monitor containers in your cluster and troubleshoot for potential problems</li>
-                        <li>Provides authentication and security such as TLS and access control</li>
+                        <li>UCP 2.0 runs on the new Swarm mode in Engine 1.12</li>
+						<li>However classic Swarm implementation is still present to provide for backwards compatability</li>
+						<li><code>ucp-swarm-manager</code> container is present on all manager nodes in UCP 2.0</li>
+						<li>Cannot deploy standard Docker containers through the web UI but you can use the Docker CLI via the client bundle</li>
+						<li>Can deploy Docker Compose applications via web UI and client bundle</li>
                     </ul>
+					
+					<aside class="notes">
+					<b>Instructor note: </b> Consider showing the ucp-swarm-manager container either in the SSH terminal of your ucp-controller node or through the web UI
+					</aside>
+					
 				</section>
                 
-                
-                
-                <section data-background="#445d6e" class="gray_bg">
-					<h2>UCP containers</h2>
-                    <ul>
-						<li>Notice the Swarm container running the manage command</li>
-                    </ul><br>
-<pre>CONTAINER ID		IMAGE					COMMAND                    
-f2b501069feb        docker/ucp-controller:1.1.1   "/bin/controller serv" 
-78b01f1f61d8        docker/ucp-auth:1.1.1         "/usr/local/bin/enzi "
-b2f4e544c75b        docker/ucp-auth:1.1.1         "/usr/local/bin/enzi "
-8df87cabc3d2        docker/ucp-auth-store:1.1.1   "/usr/local/bin/rethi"
-0592845937a8        docker/ucp-cfssl:1.1.1        "/bin/cfssl serve -ad"
-0903efdf2072        docker/ucp-cfssl:1.1.1        "/bin/cfssl serve -ad"            
-ba22d568481d        docker/ucp-swarm:1.1.1        "/swarm manage --tlsv"
-75b29f71c0d1        docker/ucp-swarm:1.1.1        "/swarm join --discov"
-423f9a9901ea        docker/ucp-proxy:1.1.1        "/bin/run"   
-c8477fe645b8        docker/ucp-etcd:1.1.1         "/bin/etcd --data-dir" 
-
-
-PORTS                                                                               NAMES
-0.0.0.0:443->8080/tcp                                                              ucp-controller
-0.0.0.0:12386->4443/tcp                                                            ucp-auth-worker
-0.0.0.0:12385->4443/tcp                                                            ucp-auth-api
-0.0.0.0:12383-12384->12383-12384/tcp                                               ucp-auth-store
-8888/tcp, 0.0.0.0:12381->12381/tcp                                                 ucp-cluster-root-ca
-8888/tcp, 0.0.0.0:12382->12382/tcp                                                 ucp-client-root-ca
-0.0.0.0:2376->2375/tcp                                                             ucp-swarm-manager
-2375/tcp                                                                           ucp-swarm-join
-0.0.0.0:12376->2376/tcp                                                            ucp-proxy
-2380/tcp, 4001/tcp, 7001/tcp, 0.0.0.0:12380->12380/tcp, 0.0.0.0:12379->2379/tcp    ucp-kv
-</pre> 
-                    
-				</section>
-                
+     
                 
                 
                 <section data-background="#445d6e" class="gray_bg">
